@@ -1,4 +1,9 @@
 ### Stories included:  [1, 2, 3, 4, 5, 10, 14, 20]
+Team Number: 5
+Team Name: 
+Day/Time of Weekly Team Meeting: Tuesday 5:30 MT
+Team Members in meeting: Elizabeth Strickenburg (SM), Nathaniel Mutkus, Tyler Sanchez, Brendan McDonnell
+Link to Zoom recording of team activity:
 
 ### User Story : 1
 <hr>
