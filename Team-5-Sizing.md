@@ -21,7 +21,7 @@ Acceptance Criteria
 	
 * **When :** 	I check the “Status Page” <br><br>
 	
-* **Then :** 	The system shows me the list of all current requirements and whether they are completed, not started, or under development<br><br>
+* **Then :** 	The system shows me the list of all current requirements and whether they are completed, not started, or in progress<br><br>
 	
 <hr><hr><br><br>
 
