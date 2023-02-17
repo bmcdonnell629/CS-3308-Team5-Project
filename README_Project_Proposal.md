@@ -6,7 +6,7 @@
 
 **Team Name:** Scrabble Team 5
 
-**Team Members:** Brendan McDonnell, Nathaniel  Mutkus, Tyler Sanchez, Elizabeth Strickenburg
+**Team Members:** Brendan McDonnell (GitHub: bmcdonnell629, email: brmc715@colorado.edu), Nathaniel  Mutkus (GitHub: mutkusnj, email: mutkus@colorado.edu), Tyler Sanchez (GitHub: tsanchez19, email: tysa5330@colorado.edu), Elizabeth Strickenburg (GitHub: estrickenburg, email: Elizabeth.Strickenburg@colorado.edu)
 
 **Team Meetings:** Tuesdays at 5:30 p.m. MT / 7:30 p.m. EST
 
