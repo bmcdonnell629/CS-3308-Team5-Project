@@ -75,8 +75,11 @@ if __name__ == "__main__":
             score = scrabbleScore(word)
             #store {word : score} as key value pair in dictionary ex. {'hello' : 8, etc} 
             scrabbleList[word] = score
-        
-    print(scrabbleList)
+    #sort list by score descending order
+    sortedList = sorted(scrabbleList.items(), key=lambda x:x[1], reverse=True)
+    #convert back to dictionary //may change
+    sortedScrabbleList = dict(sortedList)
+    print(sortedScrabbleList)
     
     
     
