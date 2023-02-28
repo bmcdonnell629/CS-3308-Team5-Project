@@ -1,0 +1,31 @@
+As a user
+I want to type a word into the search bar and see its Scrabble point value,
+so that I know if my word is a valid Scrabble word and so that I know the minimum points I can expect to get from playing it.
+
+As a user
+I want to type one or more letters into the search bar and see a list of anagrams for those letters,
+so that I know what words are possible with the specified letters.
+
+As a user
+I want to type one or more letters into the search bar and see a list of words containing some or all of those letters in any order,
+so that I know what words are possible with my current tiles and/or tiles on the board.
+
+As a user
+I want to be able to type one or more letters in a specific order and see words using those letters in that order,
+so that I can add to an existing word on the board.
+
+As a user
+I want to be able to type one or more letters in combination with one or more wildcards and see words using the letters in the specified order and spacing,
+so that I can add to existing words on the board, and/or use high-scoring letters in a specific spot.
+
+As a user
+I want to be able to limit my searches to a specific number of letters,
+so that I can find a word that fits where I need it to on the board.
+
+As a user
+I want to be able to sort the results of a word search by point value, length, or alphabetically,
+so that I can quickly find the best word to play.
+
+As a user
+I want to be able to see my past searches,
+so that I can use them as a starting point for future searches.
