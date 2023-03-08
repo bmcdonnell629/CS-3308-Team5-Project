@@ -1,5 +1,35 @@
 <div align="center">Page 1</div>  
 
+__Title: Home / Search Page__
+
+__Page Description:__ 
+
+* Page displays a search box with optional filters to allow users to input their letters
+
+<img src="../images/Search_Page.png">
+
+__Parameters needed for the page:__ 
+
+* User name/id can be used to query most recent searches to be shown in a drop-down menu from the search bar.
+
+__Data needed to render the page:__  
+
+* Need most recent searches for user, if logged in.
+
+__Link destinations for the page:__
+
+* About button takes user to About Page
+
+* Login button takes user to Login / New Account Page
+
+__List of tests for verifying the rendering of the page:__  
+
+* Test search bar display most recent searches for user, in reverse chronological order
+
+* Test check box for anagrams option can be checked/unchecked
+
+* Test all linked destinations for page work correctly  
+
 
 
 <div align="center">Page 2</div>
