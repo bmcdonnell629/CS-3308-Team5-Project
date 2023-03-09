@@ -4,6 +4,14 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 3/8/23:
+
+*Currently:*
+- Working on designs and requirements for web pages.
+- Will have designs uploaded by 3/14/23
+
+<img src="images/WeeklyStatus3.7.23.jpg">
+
 Weekly Status as of 3/1/23:
 
 *Currently:*
