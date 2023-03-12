@@ -56,15 +56,15 @@ __Page Description:__
 
 __Parameters needed for the page:__  
 
-__Data needed to render the page:__  
-
 * User letter input from search page
+
+* Logged in username and credentials
+
+__Data needed to render the page:__  
 
 * Acceptable scrabble words and scores from dictionary search
 
 * Scrabble words in descending score order
-
-* Logged in username and credentials
 
 __Link destinations for the page:__
 
@@ -90,11 +90,13 @@ __Title: Scrabble Past Results__
 
 __Page Description:__  
 
-Page displays the top 5 scoring words from the last 5 word searches the user has submitted  
+* Page displays the top 5 scoring words from the last 5 word searches the user has submitted  
 
 <img src="../images/Scrabble-PastResults-Template.JPG">
 
-__Parameters needed for the page:__    
+__Parameters needed for the page:__   
+
+* Logged in username and credentials
 
 __Data needed to render the page:__    
 
@@ -102,9 +104,7 @@ __Data needed to render the page:__
 
 * Top 5 words by Scrabble Score of past 5 Searches
 
-* Scrabble words in descending scrabble score order
-
-* Logged in username and credentials 
+* Scrabble words in descending scrabble score order 
 
 __Link destinations for the page:__
 
