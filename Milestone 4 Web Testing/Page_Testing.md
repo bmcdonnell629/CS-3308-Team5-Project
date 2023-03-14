@@ -42,6 +42,37 @@ __List of tests for verifying the rendering of the page:__
 
 <div align="center">Page 4</div>
 
+__Title: About Page__
+
+__Page Description:__ 
+
+* Page briefly describes the site's purpose, gives the user a means to try out the site, and offers links to other helpful Scrabble sites.
+
+<img src="../images/Scrabble_AboutPage.png">
+
+
+
+__Parameters needed for the page:__ 
+
+* No specific parameters needed for this page
+
+__Data needed to render the page:__  
+
+* Description of project
+
+* Other helpful Scrabble links
+
+__Link destinations for the page:__
+
+* Try It Out! button takes user to Home / Search Page
+
+* Login button takes user to Login / New Account Page
+
+* Additional helpful Scrabble links link to those sites
+
+__List of tests for verifying the rendering of the page:__  
+
+* Test all linked destinations for page work correctly
 
 
 <div align="center">Page 5</div>  
