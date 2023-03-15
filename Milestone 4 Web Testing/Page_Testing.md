@@ -67,7 +67,42 @@ __List of tests for verifying the rendering of the page:__
 
 <div align="center">Page 3</div>
 
+__Title: Register Page__
 
+__Page Description:__ 
+
+* Page that a user will use to create a new user within the database by entering name, username, and password.
+
+<img src="../images/Register.png">
+
+__Parameters needed for the page:__ 
+
+* Once the new user is registered, then it will have to go back to the login page to login. 
+
+* Username will not be able to be duplicated so an error will return if username is not available. 
+
+__Data needed to render the page:__  
+
+* Username, Name, and new password will be needed 
+
+__Link destinations for the page:__
+
+* Link to Sign in page so User can go back to Sign in 
+
+* Link to home page if user wants to go back
+
+
+__List of tests for verifying the rendering of the page:__  
+
+* Test to make sure new user is created. 
+
+* Test to make sure that duplicate username is not possible. 
+
+* Test that username and password is stored correctly in database. 
+
+* Test link back to login page and to home page. 
+
+* Test that login works after new user is registered. 
 
 <div align="center">Page 4</div>
 
