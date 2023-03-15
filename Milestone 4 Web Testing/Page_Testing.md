@@ -34,7 +34,36 @@ __List of tests for verifying the rendering of the page:__
 
 <div align="center">Page 2</div>
 
+__Title: Sign In Page__
 
+__Page Description:__ 
+
+* Page that a user will use to enter a username and password to login to the web app. 
+
+<img src="../images/Sign In.png">
+
+__Parameters needed for the page:__ 
+
+* Username and password will run against the database to see if it exists, it either is incorrect then it will return an error. It will also error if username and password does not exist. 
+
+__Data needed to render the page:__  
+
+* Username and password will be needed. 
+
+__Link destinations for the page:__
+
+* Link to Sign Up/Register page.
+
+
+__List of tests for verifying the rendering of the page:__  
+
+* Test to make sure that query to database is working. 
+
+* Test to make sure it errors if username or password is incorrect
+
+* Test to make sure error occurs is username does not exist in database. 
+
+* Test link to Sign Up/Register Page. 
 
 <div align="center">Page 3</div>
 
