@@ -4,6 +4,13 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 3/22/23:
+*Currently:*
+- Working on database design for Word Results and Username/Password
+- Adding CSS to sketched out HTML
+
+<img src="images/Weekly_Update_3_22.png">
+
 Weekly Status as of 3/15/23:
 
 *Currently:*
