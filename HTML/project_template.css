@@ -1,57 +1,25 @@
+:root {
+  /* Custom color names */
+  --newspaper_white: #D9DAD9;
+  --cyan_after_dark: #68A4A5;
+  --spinach: #4C8055;
+  --off_black: #3B373B;
+}
+
 @font-face {
 	font-family: interstate_bold;
-	src: url('C:/Users/nmutk/Desktop/SW/Project/interstate-bold.ttf');
-}
-
-body {
-	margin: 0px;
-
-	background-color: turquoise;
-}
-
-#header {
-	margin: 0px;
-	
-	display: block;
-	width: 100%;
-	height: 60px;
-	
-	background-color: goldenrod;
-}
-
-#site_name {
-	margin-left: 20px;
-
-	float: left;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-
-	font-family: interstate_bold;
-	font-size: 16px;
-	text-transform: uppercase;
-	color: whitesmoke;
-}
-
-#site_name span {
-	font-size: 24px;
+	src: url("./interstate-bold.ttf");
 }
 
 button {
-	margin-left: 5px;
-	border: 0px;
+	/* Color properties */
+	background-color: var(--cyan_after_dark);
 
-	float: right;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-
+	/* Text properties */
 	font-family: interstate_bold;
 	font-size: 16px;
 	text-transform: uppercase;
-	color: whitesmoke;
-
-	background-color: goldenrod;
+	color: var(--newspaper_white);
 }
 
 button::first-letter {
@@ -59,16 +27,73 @@ button::first-letter {
 }
 
 button:hover {
-	color: blue;
+	color: var(--spinach);
+}
+
+body {
+	/* Sizing/Positioning */
+	margin: 0px;
+
+	/* Color properties */
+	background-color: var(--newspaper_white);
+
+	/* Text properties */
+	font-family: interstate_bold;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: var(--off_black);
+	text-align: center;
+}
+
+#header {
+	/* Sizing/Positioning */
+	display: block;
+	width: 100%;
+	height: 60px;
+
+	/* Color properties */
+	background-color: var(--cyan_after_dark);
+
+	/* Text properties */
+	font-size: 16px;
+	text-transform: uppercase;
+	color: var(--newspaper_white);
+}
+
+#site_name {
+	/* Sizing/Positioning */
+	margin-left: 20px;
+	float: left;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#site_name span {
+	font-size: 24px;
+}
+
+#home_button, #about_button, #login_button {
+	/* Sizing/Positioning */
+	margin-left: 5px;
+	border: 0px;
+	float: right;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 #about_button {
-	border-left: 2px solid whitesmoke;
-	border-right: 2px solid whitesmoke;
+	/* Sizing/Positioning */
 	padding-left: 10px;
 	padding-right: 10px;
+
+	/* Border properties */
+	border-left: 2px solid var(--newspaper_white);
+	border-right: 2px solid var(--newspaper_white);
 }
 
 #login_button {
-	margin-right: 20px;
+	/* Sizing/Positioning */
+	margin-right: 10px;
 }
