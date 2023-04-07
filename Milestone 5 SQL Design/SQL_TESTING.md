@@ -74,8 +74,8 @@ Test steps:
     1. Navigate to sign up page  
     2. Provide a new unique user name  
     3. Enter name
-    3. Provide valid password  
-    4. Click Sign Up button  
+    4. Provide valid password  
+    5. Click Sign Up button  
 
 Expected result:  
     User sign up is successful and new record is created in table. 
