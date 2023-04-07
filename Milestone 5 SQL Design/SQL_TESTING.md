@@ -18,6 +18,79 @@ For each field of the table, provide name and short description.
 
 List of tests for verifying each table
 
+* UserID will be unique to each user. 
+
+* Username must be unique to each user. 
+
+* Password must be related to a specifc username for login. 
+
+* Name must be related to a specific username. 
+
+Data Access Tests  
+
+<div align="center">Test 1</div>
+
+Name: Verify Login with Username and Password
+
+Description:  
+    Test the Login Page for Scrabble for the Rabble 
+  
+Pre-conditions:  
+    Username and Password is Valid
+    
+Test steps:    
+    1. Navigate to login page  
+    2. Provide valid user name  
+    3. Provide valid password  
+    4. Click login button  
+
+Expected result:  
+    User login should be successful. 
+            
+Actual result:  
+    User is taken to the home/search page. 
+            
+Status (Pass/Fail):  
+    Pass  
+           
+Notes:  
+    N/A  
+            
+Post-conditions:
+    User is found in the database and signs into their account successfully. 
+    
+<div align="center">Test 2</div>
+
+Name: User signs up with username, name, and password
+
+Description:  
+    Tests the sign up page for Scrabble for the Rabble
+  
+Pre-conditions:  
+    User does not exist in the table
+    Username does not exist in the table
+    
+Test steps:    
+    1. Navigate to sign up page  
+    2. Provide a new unique user name  
+    3. Enter name
+    3. Provide valid password  
+    4. Click Sign Up button  
+
+Expected result:  
+    User sign up is successful and new record is created in table. 
+            
+Actual result:  
+    User is taken to the login page to login with newly created credentials.  
+            
+Status (Pass/Fail):  
+    Pass  
+           
+Notes:  
+    N/A  
+            
+Post-conditions: New user record is created in the table with a new unique primary key of UserID and the user is now able to login through the login page with correct credentials. 
+
 <div align="center">Table 2</div>
 
 Table Name: User Search History  
