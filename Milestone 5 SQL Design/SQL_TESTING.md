@@ -1,8 +1,21 @@
 <div align="center">Table 1</div>
 
-Table Name: 
-Table Description
+Table Name: User Info
+
+Table Description:
+
+* Table contains username and password info that is required for login. When a user signs up, then they will be added to this table. 
+
 For each field of the table, provide name and short description.
+
+* UserID: Primary key that is used to identify a unique user. 
+
+* Username: Unique varchar that the user will use to login.
+
+* Name: This is a varchar that is the name of the user. 
+
+* Password: This is a varchar that will be used to identify it is the user at login. 
+
 List of tests for verifying each table
 
 <div align="center">Table 2</div>
