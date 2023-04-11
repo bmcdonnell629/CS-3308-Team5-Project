@@ -4,7 +4,17 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 4/5/23:
+
+*Currently:*
+
+- Finishing Milestone 5
+- Adding flask, Javascript template, and finalizing CSS
+
+<img src="images/Weekly_Status_4_5_23.png">
+
 Weekly Status as of 3/22/23:
+
 *Currently:*
 - Working on database design for Word Results and Username/Password
 - Adding CSS to sketched out HTML
