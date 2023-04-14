@@ -4,6 +4,17 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 4/13/23:
+
+*Currently:*
+
+- Reworking Milestone 5
+- Creating files for our individual web pages
+- Developing methods for word searches
+- Creating Render database
+
+<img src="images/Weekly_Status_4_13_23.png">
+
 Weekly Status as of 4/5/23:
 
 *Currently:*
