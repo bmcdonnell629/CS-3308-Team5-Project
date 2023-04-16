@@ -1,4 +1,4 @@
-<div align="center">Table 1</div>
+<div align="center">Table 1 : User Info</div>
 
 Table Name: User Info
 
@@ -6,7 +6,7 @@ Table Description:
 
 * Table contains username and password info that is required for login. When a user signs up, then they will be added to this table. 
 
-For each field of the table, provide name and short description.
+Table Fields: 
 
 * UserID: Primary key that is used to identify a unique user. 
 
@@ -26,9 +26,9 @@ List of tests for verifying each table
 
 * Name must be related to a specific username. 
 
-Data Access Tests  
+Data Access Tests for Table 1  
 
-<div align="center">Test 1</div>
+<div>Test 1 for Table 1</div>
 
 Name: Verify Login with Username and Password
 
@@ -45,7 +45,7 @@ Test steps:
     4. Click login button  
 
 Expected result:  
-    User login should be successful. 
+    User login should be successful. Login will be successful on the user side if they are taken to the home/search page. If the login is succesful, it query the database and find the username and password linked together under a UserID. This will then trigger the login to be successful and the user will be taken to the home/seach page. 
             
 Actual result:  
     User is taken to the home/search page. 
@@ -59,7 +59,7 @@ Notes:
 Post-conditions:
     User is found in the database and signs into their account successfully. 
     
-<div align="center">Test 2</div>
+<div>Test 2 for Table 1</div>
 
 Name: User signs up with username, name, and password
 
