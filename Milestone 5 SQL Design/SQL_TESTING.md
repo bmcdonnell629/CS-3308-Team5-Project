@@ -78,7 +78,7 @@ Test steps:
     5. Click Sign Up button  
 
 Expected result:  
-    User sign up is successful and new record is created in table. 
+    User sign up is successful and new record is created in table. Once the sign up is complete, the user will be taken to the login page where they can then use their new creditials to login. When the user successfully signs up, it will then create a new record in the table, it will make sure that the username does not exist already and it will create a new unique UserID. If the username already exists, then it will return an error stating "username exists please choose another username". 
             
 Actual result:  
     User is taken to the login page to login with newly created credentials.  
