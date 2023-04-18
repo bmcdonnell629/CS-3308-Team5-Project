@@ -151,9 +151,7 @@ Expected result:
     * When user navigates to the Results History Page user should see top 5 words from their past 5 searches. If less than 5 words in search or less than 5 searches in history display none in place of missing results or words.   
     * The function will select search history for user:   
         SELECT * FROM  User Search History WHERE userID = ?, (userID)   
-
-Actual result:  
-    User sees top 5 words from past 5 searches    
+   
             
 Status (Pass/Fail):    
     Pass: The function returns the last 5 searches with the top 5 words of those searches   
@@ -199,14 +197,12 @@ Expected result:
             Iterate from 4 to 1 updating previous seaches increasing searchNum by 1  
             UPDATE table_name SET searchNum = 5 WHERE searchNum = 4;   
             ...  
-            INSERT INTO searchHistory VALUES word='', score=# ,...., letters ='', searchNum = 1, userID = ? (userID)  
+            INSERT INTO searchHistory VALUES of most recent search  
         if less than 5 searches:  
             UPDATE table_name SET searchNum = #+1 WHERE searchNum = #;   
             ...   
-            INSERT INTO searchHistory VALUES word='', score=# ...., letters ='' searchNum = 1, userID = ? (userID)  
-            
-Actual result:  
-    User sees top 5 words from past 5 searches  
+            INSERT INTO searchHistory VALUES of most recent search 
+             
             
 Status (Pass/Fail):  
     Pass: Table succesfully removes 5th oldest search and updates remaining 4 searches before inserting the newest search  
@@ -274,11 +270,9 @@ Test steps:
 
 Expected result:  
     Function returns top 10 scores from table when page is visited or refreshed:
-    Select * FROM User Score History WHERE userID = ?, (userID)
+    Select * FROM User Score History WHERE userID = userID
     User should see top 10 scrabble game scores previously entered. If less than 10 scores in score history then display available scores and display none for remaining missing scores.  
             
-Actual result:  
-    User sees top 10 scrabble game scores  
             
 Status (Pass/Fail):  
     Pass: Function returns a list of the top 10 user scores
@@ -313,18 +307,16 @@ Test steps:
     6. Input valid game score  
     
 
-Expected result:  
-    Function starts with submission of user score on user score history webpage
-    Function selects all user scores that are less than entered score: Select * FROM userScores WHERE userID = ? AND score < ?; (userID, userScore)
-    If there are scores less than user input:
-        Delete 10th highest score: DELETE FROM userScore WHERE userID = ? AND scoreNum = 10; (userID) 
-        Update scoreNum of scores less than user input by 1  
-        Insert newest score into table
-    If score is less than previous 10 do not update table  
-    User should see top 10 scrabble game scores previously entered. If less than 10 scores in score history then display available scores and display none for remaining missing scores.  
+Expected result:   
+    Function starts with submission of user score on user score history webpage  
+    Function selects all user scores that are less than entered score: Select * FROM userScores WHERE userID = userID AND score < userScore;   
+    If there are scores less than user input:  
+        Delete 10th highest score: DELETE FROM userScore WHERE userID = userID AND scoreNum = 10;   
+        Update scoreNum of scores less than user input by 1   
+        Insert newest score into table  
+    If score is less than previous 10 do not update table    
+    User should see top 10 scrabble game scores previously entered. If less than 10 scores in score history then display available scores and display none for remaining missing scores.    
             
-Actual result:  
-    User sees top 10 scrabble game scores  
             
 Status (Pass/Fail):  
     Pass: User sees 10 highest entered scrabble scores  
