@@ -49,14 +49,9 @@ Test steps:
 Expected result:  
     User login should be successful. Login will be successful on the user side if they are taken to the home/search page. If the login is succesful, it query the database and find the username and password linked together under a UserID. This will then trigger the login to be successful and the user will be taken to the home/seach page. 
             
-Actual result:  
-    User is taken to the home/search page. 
-            
 Status (Pass/Fail):  
-    Pass  
-           
-Notes:  
-    N/A  
+    Pass: The user is logged into the system and taken to the home/search page. In this the username and password would have lined up under the UserID. 
+    Fail: The user gets an error "Username or Password is incorrect" in this either the username or password does not line up in the table and the user is not able to login. 
             
 Post-conditions:
     User is found in the database and signs into their account successfully. 
@@ -80,17 +75,13 @@ Test steps:
     5. Click Sign Up button  
 
 Expected result:  
-    User sign up is successful and new record is created in table. Once the sign up is complete, the user will be taken to the login page where they can then use their new creditials to login. When the user successfully signs up, it will then create a new record in the table, it will make sure that the username does not exist already and it will create a new unique UserID. If the username already exists, then it will return an error stating "username exists please choose another username". 
-            
-Actual result:  
-    User is taken to the login page to login with newly created credentials.  
+    User sign up is successful and new record is created in table. Once the sign up is complete, the user will be taken to the login page where they can then use their new creditials to login. When the user successfully signs up, it will then create a new record in the table, it will make sure that the username does not exist already and it will create a new unique UserID. If the username already exists, then it will return an error stating "username exists please choose another username". You would then be able to query the table looking for that new username and you could see the new UserID, Password, and Name associated with that user. 
+         
             
 Status (Pass/Fail):  
-    Pass  
-           
-Notes:  
-    N/A  
-            
+    Pass: User is created successfully, the username is not found in the current table and is unique. A new user record is created under a new primary key of the UserID and the user can then go back and sign in at the login page with the new credentials.   
+    Fail: Username already exists and cannot successfully create a new user. The user record is not created in the table and the user must choose a different username. 
+                        
 Post-conditions: New user record is created in the table with a new unique primary key of UserID and the user is now able to login through the login page with correct credentials. 
 
 <div align="center">Table 2</div>
