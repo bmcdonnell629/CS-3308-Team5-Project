@@ -1,4 +1,8 @@
-#Python script that takes input of letters and produces a list of all possible scrabble words
+#!/usr/bin/env python
+#Python script that takes command line input input of letters and produces a list of all possible scrabble words with scores
+#usage ./wordScript.py <letters>
+
+import sys
 
 def characterCount(word):
     #declare empty dictionary
@@ -9,12 +13,38 @@ def characterCount(word):
         charDict[letter] = charDict.get(letter, 0) + 1
     return charDict
 
+def scrabbleScore(word):
+    #initialze score to 0
+    score = 0
+    #dict of scrabble scores per letter
+    scores = {"A": 1, "C": 3, "B": 3, "E": 1, "D": 2, "G": 2, 
+          "F": 4, "I": 1, "H": 4, "K": 5, "J": 8, "M": 3, 
+          "L": 1, "O": 1, "N": 1, "Q": 10, "P": 3, "S": 1, 
+          "R": 1, "U": 1, "T": 1, "W": 4, "V": 4, "Y": 4, 
+          "X": 8, "Z": 10}
+    #iterate by letter through word
+    for letter in word:
+        #add score of current letter to total score
+        score = score + scores[letter]
+    return score
 
-if __name__ == "__main__":
-#available letter list 
-    letterList = ['A', 'B', 'E', 'E', 'I', 'N', 'Q', 'W', 'O', 'T']
+
+def main(scriptName, letters):
+    #empty letter list 
+    letterList = []
+    try:
+        #cmd line input of available letters
+        letterInput = letters.upper()
+        for letter in letterInput:
+            letterList.append(letter)
+    except:
+        print("Incorrect Usage: ", scriptName, " <letter input>")
+        sys.exit()
+        
 #wordList to have dictionary read into
     wordList = []
+#scrabble result dictionary with word as key and scabble score as value ex. {'are': '3'...}
+    scrabbleList = {}
 #open scrabble dictionary and read each word into list
     with open('testDictionary.txt') as file:
         for line in file:
@@ -39,8 +69,19 @@ if __name__ == "__main__":
                     flag = 0
         #if flag was not set to 0 then letter list can form that word
         if flag == 1:
-            print(word)
+            #call funciton to tally word score 
+            score = scrabbleScore(word)
+            #store {word : score} as key value pair in dictionary ex. {'hello' : 8, etc} 
+            scrabbleList[word] = score
+    #sort list by score descending order
+    sortedList = sorted(scrabbleList.items(), key=lambda x:x[1], reverse=True)
+    #convert back to dictionary //may change
+    sortedScrabbleList = dict(sortedList)
+    return sortedScrabbleList
     
+if __name__ == "__main__":   
+    #call main on command line args
+    main(sys.argv[0], sys.argv[1])
     
     
     

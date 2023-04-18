@@ -29,24 +29,24 @@ def scrabbleScore(word):
     return score
 
 
-if __name__ == "__main__":
+def main(scriptName, letters, freeTiles):
     #empty letter list 
     letterList = []
     #check length of command line arg
     if len(sys.argv) != 3:
-        print("Incorrect Usage: ", sys.argv[0], " <letter input> <# of free letters>")
+        print("Incorrect Usage: ", scriptName, " <letter input> <# of free letters>")
         sys.exit()
     #Error for incorrect usage of script
     try:
         #cmd line input of available letters
-        letterInput = sys.argv[1].upper()
+        letterInput = letters.upper()
         #add letters from input to list of letters
         for letter in letterInput:
             letterList.append(letter)
         #set number of blank tiles equal to input
-        blankTiles = int(sys.argv[2])
+        blankTiles = int(freeTiles)
     except:
-        print("Incorrect Usage: ", sys.argv[0], " <letter input> <# of blank tiles>")
+        print("Incorrect Usage: ", scriptName, " <letter input> <# of blank tiles>")
         sys.exit()
         
 #wordList to have dictionary read into
@@ -104,10 +104,12 @@ if __name__ == "__main__":
     sortedList = sorted(scrabbleList.items(), key=lambda x:x[1], reverse=True)
     #convert back to dictionary //may change
     sortedScrabbleList = dict(sortedList)
-    print(sortedScrabbleList)
+    return sortedScrabbleList
     
     
-    
+if __name__ == "__main__":   
+    #call main on command line args
+    main(sys.argv[0], sys.argv[1], sys.argv[2])   
     
     
 
