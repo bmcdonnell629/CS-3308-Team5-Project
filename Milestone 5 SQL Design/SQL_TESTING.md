@@ -33,6 +33,7 @@ Data Access Tests for Table 1
 <div>Test 1 for Table 1</div>
 
 Name: Verify Login with Username and Password
+TestUser(Username, Password)
 
 Description:  
     Test the Login Page for Scrabble for the Rabble 
@@ -48,10 +49,13 @@ Test steps:
 
 Expected result:  
     User login should be successful. Login will be successful on the user side if they are taken to the home/search page. If the login is succesful, it query the database and find the username and password linked together under a UserID. This will then trigger the login to be successful and the user will be taken to the home/seach page. 
+    Test will run a query to verify username and password exist in the table and belong to the same UserID.
+    SELECT * FROM Users where Username = TestUser(Username)
+    SELECT * FROM Users where Password = TestUser(Password)
             
 Status (Pass/Fail):  
     Pass: The user is logged into the system and taken to the home/search page. In this the username and password would have lined up under the UserID. 
-    Fail: The user gets an error "Username or Password is incorrect" in this either the username or password does not line up in the table and the user is not able to login. 
+    Fail: The user gets an error "Username or Password is incorrect" in this either the username or password does not line up in the table and the user is not able to login or the username and password do not line up under the same UserID. 
             
 Post-conditions:
     User is found in the database and signs into their account successfully. 
@@ -59,6 +63,7 @@ Post-conditions:
 <div>Test 2 for Table 1</div>
 
 Name: User signs up with username, name, and password
+NewUser(Username, Name, Password)
 
 Description:  
     Tests the sign up page for Scrabble for the Rabble
@@ -76,6 +81,8 @@ Test steps:
 
 Expected result:  
     User sign up is successful and new record is created in table. Once the sign up is complete, the user will be taken to the login page where they can then use their new creditials to login. When the user successfully signs up, it will then create a new record in the table, it will make sure that the username does not exist already and it will create a new unique UserID. If the username already exists, then it will return an error stating "username exists please choose another username". You would then be able to query the table looking for that new username and you could see the new UserID, Password, and Name associated with that user. 
+    Then a query will be run to make sure that the user is created in the table. 
+    SELECT * FROM Users WHERE Username = NewUser(Username)
          
             
 Status (Pass/Fail):  
