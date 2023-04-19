@@ -1,5 +1,7 @@
 from flask import Flask, url_for, escape, render_template, session
 import psycopg2
+import wordScript
+import free_letter_wordScript
 
 app = Flask(__name__)
 
