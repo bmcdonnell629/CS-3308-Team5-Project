@@ -4,6 +4,16 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 4/19/23:
+
+*Currently:*
+
+- Implementation of web pages (Login, Sign Up, Search, Score History, Search History)
+- Making sure web pages can appropriately draw from database and appear correctly on Render
+- Javascript implementation
+
+<img src="images/Weekly_Status_4_19.png">
+
 Weekly Status as of 4/13/23:
 
 *Currently:*
