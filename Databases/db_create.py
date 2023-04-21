@@ -4,7 +4,7 @@ try:
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
 except: 
-    print("Failure to connect")
+    print("Connection failed")
 #execute create table if it doesnt already exist
 cur.execute('''
     CREATE TABLE IF NOT EXISTS Users(
@@ -19,10 +19,18 @@ cur.execute('''
     CREATE TABLE IF NOT EXISTS SearchHistory(
         userID int,
         searchNum int CHECK (searchNum > 0 AND searchNum <= 5),
-        wordNum int CHECK (wordNum > 0 AND wordNum <= 5),
-        word varchar(30),
-        score int,
-        UNIQUE (userID, searchNum, wordNum),
+        letters varchar(30),
+        word1 varchar(30) default 'none',
+        score1 int default 0,
+        word2 varchar(30) default 'none',
+        score2 int default 0,
+        word3 varchar(30) default 'none',
+        score3 int default 0,
+        word4 varchar(30) default 'none',
+        score4 int default 0,
+        word5 varchar(30) default 'none',
+        score5 int default 0,
+        UNIQUE (userID, searchNum),
         FOREIGN KEY (userID) REFERENCES Users(userID)
         );
     ''')

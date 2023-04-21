@@ -24,20 +24,22 @@ def search():
 
 @app.route('/search_history')
 def history():
+    search = []
     try:
         #open connection to db
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
     
         id = 1
-        cur.execute('SELECT letters, word, score FROM SearchHistory WHERE userID = %s;', [id])
+        cur.execute('SELECT * FROM SearchHistory WHERE userID = %s;', [id])
         search = cur.fetchall()
 
         conn.close()
+        template = 'SearchHistory.html'
     except:
-        id = 1
+        template = 'SearchHistoryFailure.html'
     
-    return render_template('SearchHistory.html')
+    return render_template(template, search = search)
 
 @app.route('/user_score')
 def score():

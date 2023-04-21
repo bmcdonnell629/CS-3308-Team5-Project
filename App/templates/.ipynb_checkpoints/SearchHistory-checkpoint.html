@@ -16,7 +16,42 @@
 		</div>
 		<div id='main'>
 			<h1>Search History</h1>
-			<p>Your other stuff here</p>
-		</div>
+        </div>
+            
+            
+        {% for row in search %}
+            <h2> Search {{row[1]}}  {{row[2]}}</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tr>
+                <td>{{row[3]}}</td>
+                <td>{{row[4]}}</td>
+                </tr>
+                <tr>
+                <td>{{row[5]}}</td>
+                <td>{{row[6]}}</td>
+                </tr>
+                <tr>
+                <td>{{row[7]}}</td>
+                <td>{{row[8]}}</td>
+                </tr>
+                <tr>
+                <td>{{row[9]}}</td>
+                <td>{{row[10]}}</td>
+                </tr>
+                <tr>
+                <td>{{row[11]}}</td>
+                <td>{{row[12]}}</td>
+                </tr>
+        </table>
+        
+        <br>
+        {% endfor %}   
+		
 	</body>
 </html>
