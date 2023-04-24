@@ -12,7 +12,31 @@ def login():
 
 @app.route('/sign_up')
 def register():
-    return "Sign Up"
+    sg = ''
+    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
+        Username = request.form['Username']
+        Password = request.form['Password']
+        Name = request.form['Name']
+        
+        conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+        cur = conn.cursor()
+        
+        cur.execute('SELECT * FROM form WHERE Username = %s', (Username,))
+        account = cur.fetchone()
+        
+        if account:
+            msg = 'Account already exists!'
+        elif not re.match(r'[A-Za-z0-9]+', Username):
+            msg = 'Username must contain only either characters and/or numbers!'
+        elif not Username or not Password or not Name:
+            msg = 'Please fill out the form'
+        else:
+            cursor.execute('INSERT INTO accounts Users (NULL, %s, %s, %s)', (Username, Password, Name,))
+            mysql.connection.commit()
+            msg = 'You have successfully registered'
+    elif request.method == 'POST':
+        msg = 'Please fill out the form'
+    return render_template('register.html', msg=msg)
 
 @app.route('/about')
 def about():
