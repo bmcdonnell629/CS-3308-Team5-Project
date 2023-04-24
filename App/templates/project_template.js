@@ -1,10 +1,12 @@
 window.onload = function() {
-    const login_button = document.querySelector("#login_button");
+    const login_button = document.querySelector("#login_button");               // Login/About/Home buttons in header
     login_button.addEventListener("click", login);
     const about_button = document.querySelector("#about_button");
     about_button.addEventListener("click", about);
     const home_button = document.querySelector("#home_button");
     home_button.addEventListener("click", home);
+    const try_it = document.querySelector("#try_it");                           // Try it button on about page
+    try_it.addEventListener("click", home);
 }
 
 function login(){
