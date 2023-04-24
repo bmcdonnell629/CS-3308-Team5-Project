@@ -1,5 +1,4 @@
 window.onload = function() {
-    console.log("page is fully loaded");
     const login_button = document.querySelector("#login_button");
     login_button.addEventListener("click", login);
     const about_button = document.querySelector("#about_button");
@@ -9,13 +8,13 @@ window.onload = function() {
 }
 
 function login(){
-    console.log("login clicked");
+    location.href="https://scrabble-for-the-rabble.onrender.com/";
 }
 
 function about(){
-    console.log("about clicked");
+    location.href="https://scrabble-for-the-rabble.onrender.com/about";
 }
 
 function home(){
-    console.log("home clicked");
+    location.href="https://scrabble-for-the-rabble.onrender.com/search";
 }
