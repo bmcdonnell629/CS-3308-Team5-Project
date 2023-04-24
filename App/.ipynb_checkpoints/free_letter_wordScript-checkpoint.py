@@ -7,7 +7,7 @@ app usage free_letter_wordScript.main('scriptName', <letters>, <# of free letter
 import sys
 
 def characterCount(word):
-     '''
+    '''
     takes input of word and returns a dictionary with keys of letters and integer value of count of that letter within word
     '''
     #declare empty dictionary
