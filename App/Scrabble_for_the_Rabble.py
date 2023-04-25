@@ -86,9 +86,12 @@ def score():
             cur.execute('SELECT MIN(score) FROM ScoreHistory WHERE userID = %s;', [id])
             minScore = cur.fetchall()
             minScore = minScore[0][0]
+            conn.close()
             
             scoreInsert(maxScoreNum, minScore, maxScore, score, id)
             
+            conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+            cur = conn.cursor()
             cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
         except:
@@ -141,3 +144,5 @@ def scoreInsert(maxScoreNum, minScore, maxScore, score, id):
                 cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, updateScoreNum, score))
 
     conn.commit()
+    conn.close()
+    return
