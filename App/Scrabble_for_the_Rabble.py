@@ -83,7 +83,7 @@ def scoreInsert(score, id):
     minScore = cur.fetchall()
     minScore = minScore[0][0]
     Date = date.today()
-    print(maxSCoreNum, " ", maxScore, " ", minScore)
+    print(maxScoreNum, " ", maxScore, " ", minScore)
     if maxScoreNum < 10:
         if score > maxScore:
             for i in range(maxScoreNum, 0, -1):
