@@ -1,7 +1,7 @@
 import psycopg2
 from datetime import date
 
-def scoreInsert(score, id):
+def insert(score, id):
     '''
     function that takes two int inputs: score and id#
     inserts top 10 scores for user into db
