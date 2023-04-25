@@ -13,7 +13,7 @@ def login():
 
 @app.route('/sign_up')
 def register():
-    sg = ''
+    msg = ''
     if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
         Username = request.form['Username']
         Password = request.form['Password']
@@ -32,7 +32,7 @@ def register():
         elif not Username or not Password or not Name:
             msg = 'Please fill out the form'
         else:
-            cursor.execute('INSERT INTO accounts Users (NULL, %s, %s, %s)', (Username, Password, Name,))
+            cursor.execute('INSERT INTO Users (NULL, %s, %s, %s)', (Username, Password, Name,))
             mysql.connection.commit()
             msg = 'You have successfully registered'
     elif request.method == 'POST':
