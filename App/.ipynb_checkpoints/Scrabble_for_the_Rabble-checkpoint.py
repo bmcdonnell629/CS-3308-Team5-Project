@@ -66,55 +66,19 @@ def history():
     
     return render_template(template, search = search)
 
-@app.route('/user_score', methods=["GET", "POST"])
-def score():
-    scores = []
-    if request.method == "POST":
-        score = request.form.get('Score')
-        try:
-            #open connection to db
-            conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-            cur = conn.cursor()
-            id = 1
-            
-            cur.execute('SELECT MAX(scoreNum) FROM ScoreHistory WHERE userID = %s;', [id])
-            maxScoreNum = cur.fetchall()
-            maxScoreNum = maxScoreNum[0][0]
-            cur.execute('SELECT MAX(score) FROM ScoreHistory WHERE userID = %s;', [id])
-            maxScore = cur.fetchall()
-            maxScore = maxScore[0][0]
-            cur.execute('SELECT MIN(score) FROM ScoreHistory WHERE userID = %s;', [id])
-            minScore = cur.fetchall()
-            minScore = minScore[0][0]
-            conn.close()
-            
-            scoreInsert(maxScoreNum, minScore, maxScore, score, id)
-            
-            conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-            cur = conn.cursor()
-            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
-            scores = cur.fetchall()
-        except:
-            render_template('user_scores_fail.html')
-        return render_template('user_scores.html', scores=scores)
-    else:
-        try:
-            #open connection to db
-            conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-            cur = conn.cursor()
 
-            id = 1
-            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
-            scores = cur.fetchall()
-
-        except:
-            render_template('user_scores_fail.html')
-        return render_template('user_scores.html', scores=scores)
-
-
-def scoreInsert(maxScoreNum, minScore, maxScore, score, id):
+def scoreInsert(score, id):
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
+    cur.execute('SELECT MAX(scoreNum) FROM ScoreHistory WHERE userID = %s;', [id])
+    maxScoreNum = cur.fetchall()
+    maxScoreNum = maxScoreNum[0][0]
+    cur.execute('SELECT MAX(score) FROM ScoreHistory WHERE userID = %s;', [id])
+    maxScore = cur.fetchall()
+    maxScore = maxScore[0][0]
+    cur.execute('SELECT MIN(score) FROM ScoreHistory WHERE userID = %s;', [id])
+    minScore = cur.fetchall()
+    minScore = minScore[0][0]
     Date = date.today()
     if maxScoreNum < 10:
         if score > maxScore:
@@ -146,3 +110,38 @@ def scoreInsert(maxScoreNum, minScore, maxScore, score, id):
     conn.commit()
     conn.close()
     return
+
+
+@app.route('/user_score', methods=["GET", "POST"])
+def score():
+    scores = []
+    if request.method == "POST":
+        score = request.form.get('Score')
+        try:
+            id = 1
+            
+            scoreInsert(score, id)
+            
+            conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+            cur = conn.cursor()
+            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
+            scores = cur.fetchall()
+        except:
+            render_template('user_scores_fail.html')
+        return render_template('user_scores.html', scores=scores)
+    else:
+        try:
+            #open connection to db
+            conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+            cur = conn.cursor()
+
+            id = 1
+            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
+            scores = cur.fetchall()
+
+        except:
+            render_template('user_scores_fail.html')
+        return render_template('user_scores.html', scores=scores)
+
+
+
