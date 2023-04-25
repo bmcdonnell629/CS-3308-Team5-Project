@@ -130,6 +130,7 @@ def score():
             cur = conn.cursor()
             cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
+            conn.close()
         except:
             render_template('user_scores_fail.html')
         return render_template('user_scores.html', scores=scores)
@@ -142,6 +143,7 @@ def score():
             id = 1
             cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
+            conn.close()
 
         except:
             render_template('user_scores_fail.html')
