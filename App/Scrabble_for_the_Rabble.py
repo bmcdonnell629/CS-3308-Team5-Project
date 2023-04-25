@@ -110,6 +110,8 @@ def score():
 
 
 def scoreInsert(maxScoreNum, minScore, maxScore, score, id):
+    conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+    cur = conn.cursor()
     Date = date.today()
     if maxScoreNum < 10:
         if score > maxScore:
@@ -139,4 +141,3 @@ def scoreInsert(maxScoreNum, minScore, maxScore, score, id):
                 cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, updateScoreNum, score))
 
     conn.commit()
-    conn.close()
