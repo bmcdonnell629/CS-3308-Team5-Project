@@ -117,6 +117,7 @@ def score():
     scores = []
     if request.method == "POST":
         score = request.form.get('Score')
+        print(score)
         try:
             id = 1
             
