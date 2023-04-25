@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def login():
-    return 'Login Page'
+    return render_template('Login_Page.html')
 
 @app.route('/sign_up')
 def register():
@@ -37,7 +37,7 @@ def register():
             msg = 'You have successfully registered'
     elif request.method == 'POST':
         msg = 'Please fill out the form'
-    return render_template('register.html', msg=msg)
+    return render_template('Register_User.html', msg=msg)
 
 @app.route('/about')
 def about():
