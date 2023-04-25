@@ -55,7 +55,7 @@ def history():
         cur = conn.cursor()
     
         id = 1
-        cur.execute('SELECT * FROM SearchHistory WHERE userID = %s;', [id])
+        cur.execute('SELECT * FROM SearchHistory WHERE userID = %s ORDER BY searchNum ASC;', [id])
         search = cur.fetchall()
 
         conn.close()
@@ -75,7 +75,7 @@ def score():
             cur = conn.cursor()
 
             id = 1
-            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s;', [id])
+            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
 
         except:
@@ -89,7 +89,7 @@ def score():
             cur = conn.cursor()
 
             id = 1
-            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s;', [id])
+            cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
 
         except:
