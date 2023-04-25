@@ -68,6 +68,7 @@ def history():
 
 
 def scoreInsert(score, id):
+    print('starting')
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
     cur.execute('SELECT MAX(scoreNum) FROM ScoreHistory WHERE userID = %s;', [id])
@@ -84,7 +85,9 @@ def scoreInsert(score, id):
         if score > maxScore:
             for i in range(maxScoreNum, 0, -1):
                 cur.execute('UPDATE ScoreHistory SET scoreNum = %s WHERE (userID = %s AND scoreNum = %s);', (i+1, id, i))
+                print('updateing')
             cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, 1, score))
+            print('inserted')
         elif score < minScore:
             cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, maxScoreNum+1, score))
         else:
