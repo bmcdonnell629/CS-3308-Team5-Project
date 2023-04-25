@@ -45,7 +45,7 @@ def about():
 
 @app.route('/search')
 def search():
-    return "Search Page"
+    return render_template('search_page.html')
 
 @app.route('/search_history')
 def history():
