@@ -76,7 +76,7 @@ def score():
         try:
             id = 1
             
-            scoreInsert.insert(score, id)
+            scoreInsert.insert(int(score), id)
             
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
             cur = conn.cursor()
