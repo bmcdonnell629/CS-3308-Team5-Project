@@ -22,7 +22,7 @@ def register():
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
         
-        cur.execute('SELECT * FROM form WHERE Username = %s', (Username,))
+        cur.execute('SELECT* FROM form WHERE Username = %s', (Username,))
         account = cur.fetchone()
         conn.close()
         if account:
