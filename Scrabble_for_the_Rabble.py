@@ -28,7 +28,7 @@ def register():
         if account:
             msg = 'Account already exists'
         elif not re.match(r'[A-Za-z0-9]+', Username):
-            msg = 'Username must contain only either characters and/or numbers!'
+            msg = 'Username must contain only either characters and/or numbers'
         elif not Username or not Password or not Name:
             msg = 'Please fill out the form'
         else:
