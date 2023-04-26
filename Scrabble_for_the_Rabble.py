@@ -33,7 +33,6 @@ def register():
             msg = 'Please fill out the form'
         else:
             cur.execute('INSERT INTO Users VALUES (Null, % s, % s, % s)', (Username, Password, Name,))
-            mysql.connection.commit()
             msg = 'You have successfully registered'
     elif request.method == 'POST':
         msg = 'Please fill out the form'
