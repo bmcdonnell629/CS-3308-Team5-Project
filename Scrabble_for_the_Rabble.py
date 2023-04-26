@@ -13,6 +13,7 @@ def login():
 
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
+    try: 
     msg = ''
     if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
         Username = request.form.get('Username')
@@ -26,7 +27,7 @@ def register():
         account = cur.fetchone()
         conn.close()
         if account:
-            msg = 'Account already exists!'
+            msg = 'Account already exists'
         elif not re.match(r'[A-Za-z0-9]+', Username):
             msg = 'Username must contain only either characters and/or numbers!'
         elif not Username or not Password or not Name:
@@ -39,7 +40,8 @@ def register():
             conn.close()
     elif request.method == 'POST':
         msg = 'Please fill out the form'
-    
+    except: 
+        return render_template('Register_User.html', msg='Fail')
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/about')
