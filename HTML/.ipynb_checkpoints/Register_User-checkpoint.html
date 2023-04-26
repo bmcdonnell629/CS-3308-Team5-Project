@@ -16,11 +16,13 @@
 		</div>
 		<div id='main'>
 			<h1>Register User</h1>
-			<form class="form1">
-      <input class="un " type="text" align="center" placeholder="Name">
+			<form action="https://scrabble-for-the-rabble.onrender.com/sign_up" method="post">
+      
       <input class="un " type="text" align="center" placeholder="Username">
       <input class="pass" type="password" align="center" placeholder="Password">
-      <button class="submit" align="center">Register</button>
+      <div class="msg">{{ msg }}</div>
+      <input type="submit" class="btn" value="Sign Up"></br>
+                </form>
 		</div>
 	</body>
 </html>
