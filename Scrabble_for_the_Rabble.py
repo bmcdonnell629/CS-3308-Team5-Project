@@ -14,7 +14,7 @@ def login():
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
     msg = ''
-    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
+    if request.method == 'POST'
         Username = request.form.get('Username')
         Password = request.form.get('Password')
         Name = request.form.get('Name')
@@ -37,8 +37,6 @@ def register():
             cur.execute('INSERT INTO Users VALUES (Null, % s, % s, % s)', (Username, Password, Name,))
             msg = 'You have successfully registered'
             conn.close()
-    elif request.method == 'POST':
-        msg = 'Please fill out the for'
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/about')
