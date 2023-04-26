@@ -4,6 +4,17 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 4/26/23:
+
+*Currently:*
+
+- Reorganizing repository to integrate CSS and JS
+- Finalizing individual HTML pages
+- Integrating individual pages together
+- Beginning documentation and report
+
+<img src="static/images/Weekly_Status_4_26_23.png">
+
 Weekly Status as of 4/19/23:
 
 *Currently:*
@@ -12,7 +23,7 @@ Weekly Status as of 4/19/23:
 - Making sure web pages can appropriately draw from database and appear correctly on Render
 - Javascript implementation
 
-<img src="images/Weekly_Status_4_19.png">
+<img src="static/images/Weekly_Status_4_19.png">
 
 Weekly Status as of 4/13/23:
 
@@ -23,7 +34,7 @@ Weekly Status as of 4/13/23:
 - Developing methods for word searches
 - Creating Render database
 
-<img src="images/Weekly_Status_4_13_23.png">
+<img src="static/images/Weekly_Status_4_13_23.png">
 
 Weekly Status as of 4/5/23:
 
@@ -32,7 +43,7 @@ Weekly Status as of 4/5/23:
 - Finishing Milestone 5
 - Adding flask, Javascript template, and finalizing CSS
 
-<img src="images/Weekly_Status_4_5_23.png">
+<img src="static/images/Weekly_Status_4_5_23.png">
 
 Weekly Status as of 3/22/23:
 
@@ -40,7 +51,7 @@ Weekly Status as of 3/22/23:
 - Working on database design for Word Results and Username/Password
 - Adding CSS to sketched out HTML
 
-<img src="images/Weekly_Update_3_22.png">
+<img src="static/images/Weekly_Update_3_22.png">
 
 Weekly Status as of 3/15/23:
 
@@ -49,7 +60,7 @@ Weekly Status as of 3/15/23:
 - Beginning to work on database design
 - Beginning to sketch out HTML
 
-<img src="images/Weekly_Update_3_15.jpg">
+<img src="static/images/Weekly_Update_3_15.jpg">
 
 Weekly Status as of 3/8/23:
 
@@ -57,7 +68,7 @@ Weekly Status as of 3/8/23:
 - Working on designs and requirements for web pages.
 - Will have designs uploaded by 3/14/23
 
-<img src="images/WeeklyStatus3.7.23.jpg">
+<img src="static/images/WeeklyStatus3.7.23.jpg">
 
 Weekly Status as of 3/1/23:
 
@@ -65,7 +76,7 @@ Weekly Status as of 3/1/23:
 - Designing web pages for Milestone 4
 - We planned out the basic pages and divided them between team members
 
-<img src="images/Weekly_Status_2023-03-01.png">
+<img src="static/images/Weekly_Status_2023-03-01.png">
 
 Weekly Status as of 2/25/23: 
 
@@ -74,4 +85,4 @@ Weekly Status as of 2/25/23:
 - Creating weekly status document for Milestone 3
 - Assigning role for updating status document
 
-<img src="images/Trello_2_25_23.jpg">
+<img src="static/images/Trello_2_25_23.jpg">
