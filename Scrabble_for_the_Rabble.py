@@ -11,7 +11,7 @@ app = Flask(__name__)
 def login():
     return render_template('Login_Page.html')
 
-@app.route('/sign_up')
+@app.route('/sign_up', methods=["GET", "POST"])
 def register():
     msg = ''
     if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
