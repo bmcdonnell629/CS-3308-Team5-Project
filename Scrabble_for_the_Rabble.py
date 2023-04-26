@@ -38,7 +38,7 @@ def register():
             msg = 'You have successfully registered'
             conn.close()
     elif request.method == 'POST':
-        msg = 'Please fill out the form'
+        msg = 'Please fill out the for'
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/about')
