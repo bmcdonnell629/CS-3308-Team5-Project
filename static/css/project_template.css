@@ -8,7 +8,7 @@
 
 @font-face {
 	font-family: interstate_bold;
-	src: url("./interstate-bold.ttf");
+	src: url("static/css/interstate-bold.ttf");
 }
 
 button {
