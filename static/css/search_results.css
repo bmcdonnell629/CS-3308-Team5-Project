@@ -1,0 +1,98 @@
+:root {
+  /* Custom color names */
+  --newspaper_white: #D9DAD9;
+  --cyan_after_dark: #68A4A5;
+  --spinach: #4C8055;
+  --off_black: #3B373B;
+}
+
+
+@font-face {
+	font-family: interstate_bold;
+	src: url("interstate-bold.woff");
+}
+
+
+button {
+	cursor: pointer;
+	background-color: var(--cyan_after_dark);
+
+	border: none;
+
+	font-family: interstate_bold;
+	font-size: 16px;
+	color: var(--newspaper_white);
+}
+
+button::first-letter {
+	font-size: 24px;
+}
+
+button:hover {
+	color: var(--spinach);
+}
+
+
+body {
+	margin: 0px;
+	background-color: var(--newspaper_white);
+
+	font-family: monospace;
+	font-size: 20px;
+	text-align: center;
+	color: var(--off_black);
+}
+
+
+#header {
+	display: block;
+	height: 60px;
+	background-color: var(--cyan_after_dark);
+
+	font-family: interstate_bold;
+	font-size: 16px;
+	color: var(--newspaper_white);
+}
+
+
+#site_name {
+	float: left;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 20px;
+}
+
+#site_name span {
+	font-size: 24px;
+}
+
+
+/* Setup main buttons */
+#home_button, #about_button, #login_button {
+	float: right;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 5px;
+}
+
+#about_button {
+	padding-left: 10px;
+	padding-right: 10px;
+
+	border-left: 2px solid var(--newspaper_white);
+	border-right: 2px solid var(--newspaper_white);
+}
+
+#login_button {
+	margin-right: 10px;
+}
+
+
+h1 {
+	margin: 50px;
+	
+	font-family: interstate_bold;
+	font-size: 30px;
+}
