@@ -22,7 +22,7 @@ def register():
     Password = request.form.get('Password')
     Name = request.form.get('Name')
     UserID = request.form.get('UserID')
-    if request.method == 'POST' and if Username and if Password  and if Name and if UserID:
+    if request.method == 'POST':
         
         
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
