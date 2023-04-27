@@ -48,7 +48,7 @@ def register():
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/Users_Table')
-def history():
+def UsersTable():
     Users = []
     try:
         #open connection to db
