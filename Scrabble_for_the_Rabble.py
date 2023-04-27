@@ -47,6 +47,10 @@ def about():
 def search():
     return render_template('search_page.html')
 
+@app.route('/search_results/<search_word>/<allow_anagrams>/<min_letters>/<max_letters>/<starts_with>/<ends_with>/<contains>/<fixed_letters>')
+def search_results():
+    return render_template('search_results.html')
+
 @app.route('/search_history')
 def history():
     search = []
