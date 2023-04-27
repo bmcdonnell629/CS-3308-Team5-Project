@@ -62,11 +62,9 @@ def UsersTable():
         search = cur.fetchall()
 
         conn.close()
-        template = 'SearchHistory.html'
+        print(search)
     except:
-        template = 'SearchHistoryFailure.html'
-    
-    return render_template(template, search = Users)
+        print('Failed')
 
 @app.route('/about')
 def about():
