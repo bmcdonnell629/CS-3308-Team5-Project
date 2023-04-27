@@ -47,9 +47,9 @@ def about():
 def search():
     return render_template('search_page.html')
 
-@app.route('/search_results/<search_word>/<allow_anagrams>/<min_letters>/<max_letters>/<starts_with>/<ends_with>/<contains>/<fixed_letters>')
-def search_results(search_word=None, allow_anagrams=True, min_letters=2, max_letters=15, starts_with=None, ends_with=None, contains=None, fixed_letters=None):
-    return render_template('search_results.html', search_word=search_word, allow_anagrams=allow_anagrams, min_letters=min_letters, max_letters=max_letters, starts_with=starts_with, ends_with=ends_with, contains=contains, fixed_letters=fixed_letters)
+@app.route('/search_results/<search_word>')
+def search_results(search_word=None):
+    return render_template('search_results.html', search_word=search_word)
 
 @app.route('/search_history')
 def history():
