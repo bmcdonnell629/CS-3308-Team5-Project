@@ -8,7 +8,7 @@ window.onload = function() {
 }
 
 function login(){
-    location.href="https://scrabble-for-the-rabble.onrender.com/";
+    location.href="https://scrabble-for-the-rabble.onrender.com/login";
 }
 
 function about(){
