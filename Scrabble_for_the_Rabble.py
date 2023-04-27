@@ -27,12 +27,12 @@ def register():
         
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
-        
-    cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
+    cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))    
+    #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
     account = cur.fetchone()
     conn.close()
-    if account:
-        msg = 'Account already exists'
+    #if account:
+        #msg = 'Account already exists'
         #elif not re.match(r'[A-Za-z0-9]+', Username):
             #msg = 'Username must contain only either characters and/or numbers'
         #elif not Username or not Password or not Name:
@@ -46,6 +46,25 @@ def register():
     #elif request.method == 'POST':
         #msg = 'Please fill out the form'
     return render_template('Register_User.html', msg=msg)
+
+@app.route('/Users_Table')
+def history():
+    Users = []
+    try:
+        #open connection to db
+        conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+        cur = conn.cursor()
+    
+        id = 1
+        cur.execute('SELECT * FROM Users)
+        search = cur.fetchall()
+
+        conn.close()
+        template = 'SearchHistory.html'
+    except:
+        template = 'SearchHistoryFailure.html'
+    
+    return render_template(template, search = search)
 
 @app.route('/about')
 def about():
