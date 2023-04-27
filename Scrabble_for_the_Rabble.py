@@ -64,7 +64,7 @@ def UsersTable():
     except:
         template = 'SearchHistoryFailure.html'
     
-    return render_template(template, search = search)
+    return render_template(template, search = Users)
 
 @app.route('/about')
 def about():
