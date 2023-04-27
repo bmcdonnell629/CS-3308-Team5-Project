@@ -51,10 +51,6 @@ def register():
 def about():
     return render_template('about_page.html')
 
-@app.route('/search')
-def search():
-    return render_template('search_page.html')
-
 @app.route('/search_results/<search_word>')
 def search_results(search_word=None):
     return render_template('search_results.html')
