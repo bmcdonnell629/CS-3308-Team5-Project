@@ -22,17 +22,17 @@ def register():
     Password = request.form.get('Password')
     Name = request.form.get('Name')
     UserID = request.form.get('UserID')
-    if request.method == 'POST':
+    #if request.method == 'POST':
         
         
-        conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-        cur = conn.cursor()
+        #conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+        #cur = conn.cursor()
         
-        cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
-        account = cur.fetchone()
-        conn.close()
-        if account:
-            msg = 'Account already exists'
+        #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
+        #account = cur.fetchone()
+        #conn.close()
+        #if account:
+            #msg = 'Account already exists'
         #elif not re.match(r'[A-Za-z0-9]+', Username):
             #msg = 'Username must contain only either characters and/or numbers'
         #elif not Username or not Password or not Name:
@@ -43,8 +43,8 @@ def register():
             #cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))
             #msg = 'You have successfully registered'
             #conn.close()
-    elif request.method == 'POST':
-        msg = 'Please fill out the form'
+    #elif request.method == 'POST':
+        #msg = 'Please fill out the form'
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/about')
