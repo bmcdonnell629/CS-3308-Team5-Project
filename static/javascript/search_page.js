@@ -22,5 +22,5 @@ function home(){
 }
 
 function search(){
-    location.href="C:/Users/Z0044M6M/Desktop/CSPB/School/SW/Project/search_results.html";
+    location.href="https://scrabble-for-the-rabble.onrender.com/search_results";
 }
