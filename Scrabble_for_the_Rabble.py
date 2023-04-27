@@ -18,11 +18,12 @@ def login():
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
     msg = ''
-    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form and UserID in request.form:
-        Username = request.form.get('Username')
-        Password = request.form.get('Password')
-        Name = request.form.get('Name')
-        UserID = request.form.get('UserID')
+    Username = request.form.get('Username')
+    Password = request.form.get('Password')
+    Name = request.form.get('Name')
+    UserID = request.form.get('UserID')
+    if request.method == 'POST' and if Username and if Password  and if Name and if UserID:
+        
         
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
