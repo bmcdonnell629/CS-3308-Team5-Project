@@ -30,7 +30,9 @@ def register():
     cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))    
     #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
     account = cur.fetchone()
+    conn.commit()
     conn.close()
+    
     #if account:
         #msg = 'Account already exists'
         #elif not re.match(r'[A-Za-z0-9]+', Username):
