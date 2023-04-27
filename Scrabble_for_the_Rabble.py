@@ -52,19 +52,16 @@ def register():
 @app.route('/Users_Table')
 def UsersTable():
     Users = []
-    try:
-        #open connection to db
-        conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-        cur = conn.cursor()
+       #open connection to db
+    conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+    cur = conn.cursor()
     
-        id = 1
-        cur.execute('SELECT * FROM Users')
-        search = cur.fetchall()
+    id = 1
+    cur.execute('SELECT * FROM Users')
+    earch = cur.fetchall()
 
-        conn.close()
-        print(search)
-    except:
-        print('Failed')
+    conn.close()
+    return search
 
 @app.route('/about')
 def about():
