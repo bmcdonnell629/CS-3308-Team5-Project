@@ -14,10 +14,11 @@ def login():
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
     msg = ''
-    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
+    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form and UserID in request.form:
         Username = request.form['Username']
         Password = request.form['Password']
         Name = request.form['Name']
+        UserID = request.form['UserID']
         
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
@@ -34,9 +35,11 @@ def register():
         else:
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
             cur = conn.cursor()
-            cur.execute('INSERT INTO Users (UserID, Username, Password, Name) VALUES (Null, % s, % s, % s)', (Username, Password, Name,))
+            cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))
             msg = 'You have successfully registered'
             conn.close()
+    elif request.method == 'POST':
+        msg = 'Please fill out the form'
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/about')
