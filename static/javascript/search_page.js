@@ -18,7 +18,7 @@ function about(){
 }
 
 function home(){
-    location.href="https://scrabble-for-the-rabble.onrender.com/search";
+    location.href="https://scrabble-for-the-rabble.onrender.com/";
 }
 
 function search(){
