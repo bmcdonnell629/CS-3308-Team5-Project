@@ -8,6 +8,10 @@ app = Flask(__name__)
 
 
 @app.route('/')
+def search():
+    return render_template('search_page.html')
+
+@app.route('/login')
 def login():
     return render_template('Login_Page.html')
 
