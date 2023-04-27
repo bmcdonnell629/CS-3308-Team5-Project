@@ -22,5 +22,5 @@ function home(){
 }
 
 function search(){
-    location.href="https://scrabble-for-the-rabble.onrender.com/search_results";
+    location.href="https://scrabble-for-the-rabble.onrender.com/search_results/test/True/%32/%31%35/t/t/es/t%2A%2At";
 }
