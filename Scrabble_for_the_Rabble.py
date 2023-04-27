@@ -72,7 +72,7 @@ def about():
 
 @app.route('/search_results/<search_word>')
 def search_results(search_word=None):
-    return render_template('search_results.html')
+    return render_template('search_results.html', search_word = search_word)
 
 @app.route('/search_history')
 def history():
