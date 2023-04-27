@@ -5,8 +5,7 @@ window.onload = function() {
     about_button.addEventListener("click", about);
     const home_button = document.querySelector("#home_button");
     home_button.addEventListener("click", home);
-    const try_it = document.querySelector("#try_it");                           // Try it button on about page
-    try_it.addEventListener("click", home);
+    
 }
 
 function login(){
