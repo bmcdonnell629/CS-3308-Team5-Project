@@ -77,7 +77,8 @@ def search_results():
     return render_template('search_results.html')
 
 @app.route('/search_results/<search_word>')
-def search_results(search_word=None):
+#cahnged to capital S to let deploy
+def Search_results(search_word=None):
     return render_template(url_for('search_results'), search_word = search_word)
 
 @app.route('/search_history')
