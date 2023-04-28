@@ -9,6 +9,7 @@ except:
 cur.execute('''
     CREATE TABLE IF NOT EXISTS Users(
         userID int,
+        name varchar(255) NOT NULL,
         Username varchar(255) NOT NULL,
         password varchar(255) NOT NULL,
         PRIMARY KEY(userID)
