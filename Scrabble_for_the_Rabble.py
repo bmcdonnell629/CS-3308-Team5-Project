@@ -21,7 +21,7 @@ def login():
     cur = conn.cursor()
     
     if request.method == 'POST':
-        cur.execute('SELECT* FROM Users where Username = %s AND password = %s;'(Username, Password))
+        cur.execute('SELECT* FROM Users WHERE Username = %s AND password = %s;', (Username, Password))
         LoggedInUser = cur.fetchone()
         if LoggedInUser:
             #session['loggedin'] = True
