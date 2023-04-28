@@ -35,7 +35,7 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.pop('user')         
+    session.pop('user', none)         
     return redirect('/login')
 
 @app.route('/sign_up', methods=["GET", "POST"])
