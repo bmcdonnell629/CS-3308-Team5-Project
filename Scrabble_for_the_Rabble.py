@@ -25,12 +25,14 @@ def register():
     print(Username, Password, Name, UserID)
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
-    
+    cur.execute('SELECT MAX(UserID) FROM Users;')
+    maxUserID = cur.fetchall()
+    maxUserID = maxUserID[0][0]
     if request.method == 'POST':
         
         
         
-        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (int(UserID), Name, Username, Password))    
+        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (maxUserID+1, Name, Username, Password))    
         #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
         #account = cur.fetchone()
         conn.commit()
