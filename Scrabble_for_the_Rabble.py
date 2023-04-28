@@ -24,9 +24,9 @@ def login():
         cur.execute('SELECT* FROM Users WHERE Username = %s AND password = %s;', (Username, Password))
         LoggedInUser = cur.fetchone()
         if LoggedInUser:
-            #session['loggedin'] = True
-            #session['id'] = LoggedInUser['userID']
-            #session['username'] = LoggedInUser['Username']
+            session['loggedin'] = True
+            session['id'] = LoggedInUser['userID']
+            session['username'] = LoggedInUser['Username']
             msg = 'Logged in successfully'
     conn.close()
     return render_template('Login_Page.html', msg=msg)
