@@ -28,29 +28,16 @@ def register():
     maxUserID = cur.fetchall()
     maxUserID = maxUserID[0][0]
     if request.method == 'POST':
-        
-        
-        
-        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (maxUserID+1, Name, Username, Password))    
-        #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
-        #account = cur.fetchone()
-        conn.commit()
-        conn.close()
-        msg = 'User Added Successfully'
-    
-    #if account:
-        #msg = 'Account already exists'
-        #elif not re.match(r'[A-Za-z0-9]+', Username):
-            #msg = 'Username must contain only either characters and/or numbers'
-        
-        #else:
-            #conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-            #cur = conn.cursor()
-            #cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))
-            #msg = 'You have successfully registered'
-            #conn.close()
-    #elif request.method == 'POST':
-        #msg = 'Please fill out the form'
+        cur.execute('SELECT* FROM Users WHERE Username = %s;', (Username))
+        account = cur.fetchone()
+        if account:
+            msg = 'Username Already Exists, Please Use A Different Username'
+        else:
+            cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (maxUserID+1, Name, Username, Password))    
+            conn.commit()
+            conn.close()
+            msg = 'User Added Successfully'
+
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/Users_Table')
