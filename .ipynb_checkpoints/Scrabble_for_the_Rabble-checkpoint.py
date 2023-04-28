@@ -62,7 +62,7 @@ def UsersTable():
     cur = conn.cursor()
     
     id = 1
-    cur.execute('SELECT * FROM Users')
+    cur.execute('SELECT * FROM Users;')
     Users = cur.fetchall()
 
     conn.close()
