@@ -13,6 +13,10 @@ def search():
 
 @app.route('/login')
 def login():
+    msg = ''
+    Username = request.form.get('Username')
+    Password = request.form.get('Password')
+    print(Username, Password)
     return render_template('Login_Page.html')
 
 @app.route('/sign_up', methods=["GET", "POST"])
@@ -32,6 +36,8 @@ def register():
         account = cur.fetchone()
         if account:
             msg = 'Username Already Exists, Please Use A Different Username'
+        elif not Username or not Password or not Name:
+            mst = 'Please fill out all fields'
         else:
             cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (maxUserID+1, Name, Username, Password))    
             conn.commit()
