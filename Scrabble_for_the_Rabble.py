@@ -33,6 +33,11 @@ def login():
     conn.close()
     return render_template('Login_Page.html', msg=msg)
 
+@app.route('/logout')
+def logout():
+    session.pop('user')         
+    return redirect('/login')
+
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
     msg = ''
