@@ -27,7 +27,8 @@ def login():
             session['id'] = LoggedInUser['userID']
             session['username'] = LoggedInUser['Username']
             msg = 'Logged in successfully'
-    return render_template('Login_Page.html')
+    conn.close()
+    return render_template('Login_Page.html', msg=msg)
 
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
