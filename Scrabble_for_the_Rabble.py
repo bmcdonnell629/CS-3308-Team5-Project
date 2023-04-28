@@ -67,7 +67,7 @@ def UsersTable():
 def about():
     return render_template('about_page.html')
 
-@app.route('/search_results/<str:search_word>')
+@app.route('/search_results/<search_word>')
 def search_results(search_word=None):
     return render_template('search_results.html', search_word = search_word)
 
