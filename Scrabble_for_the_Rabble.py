@@ -61,7 +61,7 @@ def UsersTable():
     earch = cur.fetchall()
 
     conn.close()
-    return search
+    return Users
 
 @app.route('/about')
 def about():
