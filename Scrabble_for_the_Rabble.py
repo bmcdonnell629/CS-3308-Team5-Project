@@ -22,6 +22,7 @@ def register():
     Password = request.form.get('Password')
     Name = request.form.get('Name')
     UserID = request.form.get('UserID')
+    print(Username, Password, Name, UserID)
     if request.method == 'POST':
         
         

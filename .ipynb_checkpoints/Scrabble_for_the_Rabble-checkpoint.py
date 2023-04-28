@@ -8,44 +8,73 @@ app = Flask(__name__)
 
 
 @app.route('/')
+def search():
+    return render_template('search_page.html')
+
+@app.route('/login')
 def login():
     return render_template('Login_Page.html')
 
-@app.route('/sign_up')
+@app.route('/sign_up', methods=["GET", "POST"])
 def register():
     msg = ''
-    if request.method == 'POST' and 'Username' in request.form and 'Password' in request.form and 'Name' in request.form:
-        Username = request.form['Username']
-        Password = request.form['Password']
-        Name = request.form['Name']
+    Username = request.form.get('Username')
+    Password = request.form.get('Password')
+    Name = request.form.get('Name')
+    UserID = request.form.get('UserID')
+    print(Username, Password, Name, UserID)
+    if request.method == 'POST':
+        
         
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
-        
-        cur.execute('SELECT * FROM form WHERE Username = %s', (Username,))
-        account = cur.fetchone()
-        
-        if account:
-            msg = 'Account already exists!'
-        elif not re.match(r'[A-Za-z0-9]+', Username):
-            msg = 'Username must contain only either characters and/or numbers!'
-        elif not Username or not Password or not Name:
-            msg = 'Please fill out the form'
-        else:
-            cur.execute('INSERT INTO Users (NULL, %s, %s, %s)', (Username, Password, Name,))
-            mysql.connection.commit()
-            msg = 'You have successfully registered'
-    elif request.method == 'POST':
-        msg = 'Please fill out the form'
+        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (UserID, Name, Username, Password))    
+        #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
+        #account = cur.fetchone()
+        conn.commit()
+        conn.close()
+    
+    #if account:
+        #msg = 'Account already exists'
+        #elif not re.match(r'[A-Za-z0-9]+', Username):
+            #msg = 'Username must contain only either characters and/or numbers'
+        #elif not Username or not Password or not Name:
+            #msg = 'Please fill out the form'
+        #else:
+            #conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+            #cur = conn.cursor()
+            #cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))
+            #msg = 'You have successfully registered'
+            #conn.close()
+    #elif request.method == 'POST':
+        #msg = 'Please fill out the form'
     return render_template('Register_User.html', msg=msg)
+
+@app.route('/Users_Table')
+def UsersTable():
+    Users = []
+       #open connection to db
+    conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+    cur = conn.cursor()
+    
+    id = 1
+    cur.execute('SELECT * FROM Users')
+    Users = cur.fetchall()
+
+    conn.close()
+    return Users
 
 @app.route('/about')
 def about():
     return render_template('about_page.html')
 
-@app.route('/search')
-def search():
-    return render_template('search_page.html')
+@app.route('/search_results')
+def search_results():
+    return render_template('search_results.html')
+
+@app.route('/search_results/<search_word>')
+def search_results(search_word=None):
+    return render_template(url_for('search_results'), search_word = search_word)
 
 @app.route('/search_history')
 def history():
