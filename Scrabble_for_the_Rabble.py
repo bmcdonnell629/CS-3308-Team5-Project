@@ -25,11 +25,6 @@ def register():
     print(Username, Password, Name, UserID)
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
-    Username = request.form.get('Username')
-    Password = request.form.get('Password')
-    Name = request.form.get('Name')
-    UserID = request.form.get('UserID')
-    print(Username, Password, Name, UserID) 
     
     if request.method == 'POST' and if Username and if Password and if Name and if UserID:
         
@@ -41,7 +36,7 @@ def register():
         conn.commit()
         conn.close()
         msg = 'User Added Successfully'
-    elif not Username or not Password or not Name:
+    else:
         msg = 'Please fill out the form'
     
     #if account:
