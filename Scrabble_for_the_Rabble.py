@@ -11,12 +11,22 @@ app = Flask(__name__)
 def search():
     return render_template('search_page.html')
 
-@app.route('/login')
+@app.route('/login',  methods=["GET", "POST"])
 def login():
-    #msg = ''
-    #Username = request.form.get('Username')
-    #Password = request.form.get('Password')
-    #print(Username, Password)
+    msg = ''
+    Username = request.form.get('Username')
+    Password = request.form.get('Password')
+    print(Username, Password)
+    conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM Users where Username = %s AND password = %s;'(Username, Password))
+    LoggedInUser = cur.fetchone()
+    if request.method == 'POST':
+        if account:
+            session['loggedin'] = True
+            session['id'] = LoggedInUser['userID']
+            session['username'] = LoggedInUser['Username']
+            msg = 'Logged in successfully'
     return render_template('Login_Page.html')
 
 @app.route('/sign_up', methods=["GET", "POST"])
