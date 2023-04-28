@@ -27,7 +27,7 @@ def register():
         
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
-        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (% s, % s, % s, % s);', (UserID, Name, Username, Password))    
+        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (UserID, Name, Username, Password))    
         #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
         #account = cur.fetchone()
         conn.commit()
