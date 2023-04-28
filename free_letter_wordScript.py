@@ -76,7 +76,7 @@ def main(scriptName, letters, freeTiles):
         flag = 1
         #set # of free letters = blank tiles
         freeLetters = blankTiles
-        #call characterCount which returns a dictionary with a key of letter and a vallue of the number of times letter in word
+        #call characterCount which returns a dictionary with a key of letter and a value of the number of times letter in word
         #ex word = hello charCount = {'h':'1', 'e':1, 'l':'2', 'o':1}
         charCount = characterCount(word)
         #key = letter
