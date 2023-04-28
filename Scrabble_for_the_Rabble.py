@@ -32,8 +32,8 @@ def register():
     maxUserID = cur.fetchall()
     maxUserID = maxUserID[0][0]
     if request.method == 'POST':
-        cur.execute('SELECT* FROM Users WHERE Username = %s;', (Username))
-        account = cur.fetchall()
+        cur.execute('SELECT* FROM Users WHERE Username = %s;', [Username])
+        account = cur.fetchone()
         if account:
             msg = 'Username Already Exists, Please Use A Different Username'
         else:
