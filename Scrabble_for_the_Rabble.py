@@ -22,7 +22,7 @@ def login():
     cur.execute('SELECT * FROM Users where Username = %s AND password = %s;'(Username, Password))
     LoggedInUser = cur.fetchone()
     if request.method == 'POST':
-        if account:
+        if LoggedInUser:
             session['loggedin'] = True
             session['id'] = LoggedInUser['userID']
             session['username'] = LoggedInUser['Username']
