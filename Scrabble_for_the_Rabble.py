@@ -19,13 +19,14 @@ def login():
     print(Username, Password)
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
-    cur.execute('SELECT* FROM Users where Username = %s AND password = %s;'(Username, Password))
-    LoggedInUser = cur.fetchone()
+    
     if request.method == 'POST':
+        cur.execute('SELECT* FROM Users where Username = %s AND password = %s;'(Username, Password))
+        LoggedInUser = cur.fetchone()
         if LoggedInUser:
-            #session['loggedin'] = True
-            #session['id'] = LoggedInUser['userID']
-            #session['username'] = LoggedInUser['Username']
+            session['loggedin'] = True
+            session['id'] = LoggedInUser['userID']
+            session['username'] = LoggedInUser['Username']
             msg = 'Logged in successfully'
     conn.close()
     return render_template('Login_Page.html', msg=msg)
