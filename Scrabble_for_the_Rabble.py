@@ -28,8 +28,8 @@ def login():
             #session['id'] = LoggedInUser['userID']
             #session['username'] = Username
             msg = 'Logged in successfully'
-         #else: 
-            #msg = 'Username/Password is incorrect'
+         else: 
+            msg = 'Username/Password is incorrect'
     conn.close()
     return render_template('Login_Page.html', msg=msg)
 
