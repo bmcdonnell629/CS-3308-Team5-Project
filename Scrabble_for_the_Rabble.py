@@ -32,7 +32,7 @@ def register():
         account = cur.fetchone()
         if account:
             msg = 'Username Already Exists, Please Use A Different Username'
-        elif Username = '' or Name='' or Password='':
+        elif 'Username' not in request.form:
             msg = 'Please fill out all fields'
         else:
             cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (maxUserID+1, Name, Username, Password))    
