@@ -13,10 +13,10 @@ def search():
 
 @app.route('/login')
 def login():
-    msg = ''
-    Username = request.form.get('Username')
-    Password = request.form.get('Password')
-    print(Username, Password)
+    #msg = ''
+    #Username = request.form.get('Username')
+    #Password = request.form.get('Password')
+    #print(Username, Password)
     return render_template('Login_Page.html')
 
 @app.route('/sign_up', methods=["GET", "POST"])
