@@ -16,7 +16,7 @@
 		</div>
 		<div id='main'>
 			<h1>Register User</h1>
-			<form class="form1">
+			<form class="form1" method="post" action="{{ url_for('register') }}">
       <input id = "UserID" name = "UserID" type="int" align="center" placeholder="UserID">
       <input id="Name" name="Name" type="text" align="center" placeholder="Name">
       <input id="Username" name="Username" type="text" align="center" placeholder="Username">
