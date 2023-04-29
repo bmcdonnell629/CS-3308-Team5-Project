@@ -37,7 +37,7 @@ def login():
 def logout():
     session.clear()
     #session.pop('user', none)         
-    #return redirect(url_for('login'))
+    return redirect(url_for('login'))
 
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
