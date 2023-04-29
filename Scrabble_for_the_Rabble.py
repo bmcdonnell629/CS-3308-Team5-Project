@@ -36,7 +36,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('user', none)         
-    return redirect('https://scrabble-for-the-rabble.onrender.com/login')
+    return redirect(url_for('login'))
 
 @app.route('/sign_up', methods=["GET", "POST"])
 def register():
