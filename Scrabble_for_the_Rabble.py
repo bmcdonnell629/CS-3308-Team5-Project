@@ -26,7 +26,7 @@ def login():
         if LoggedInUser:
             #session['loggedin'] = True
             #session['id'] = LoggedInUser['userID']
-            session['user'] = Username
+            #session['user'] = Username
             msg = 'Logged in successfully'
         
         msg = 'Username/Password is incorrect'
