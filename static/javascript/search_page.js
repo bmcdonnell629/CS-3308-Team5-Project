@@ -23,5 +23,5 @@ function home(){
 
 function search(){
     const search_word = document.getElementById("search_bar").value;
-    location.href = "https://scrabble-for-the-rabble.onrender.com/search_results/" + search_word;
+    location.href = "https://scrabble-for-the-rabble.onrender.com/search_results?search_word=" + search_word;
 }
