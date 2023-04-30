@@ -5,7 +5,7 @@ import free_letter_wordScript
 import scoreInsert
 
 app = Flask(__name__)
-
+app.secret_key = 'Scrabble'
 
 @app.route('/', methods=['GET', 'POST']) 
 def search():
