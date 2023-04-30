@@ -3,16 +3,43 @@ import psycopg2
 import wordScript
 import free_letter_wordScript
 import scoreInsert
+import get_anagrams
+import advanced_filters
 
 app = Flask(__name__)
+app.secret_key = 'Scrabble'
 
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST']) 
 def search():
     return render_template('search_page.html')
 
-@app.route('/login')
+@app.route('/login',  methods=["GET", "POST"])
 def login():
+    msg = ''
+    Username = request.form.get('Username')
+    Password = request.form.get('Password')
+    print(Username, Password)
+    conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+    cur = conn.cursor()
+    
+    if request.method == 'POST':
+        cur.execute('SELECT* FROM Users WHERE Username = %s AND password = %s;', (Username, Password))
+        LoggedInUser = cur.fetchone()
+        if LoggedInUser:
+            cur.execute('SELECT userID FROM Users WHERE Username = %s AND password = %s;', (Username, Password))
+            session['id'] = cur.fetchone()
+            session['user'] = Username
+            msg = 'Logged in successfully'
+        else:
+            msg = 'Username/Password is incorrect'
+    conn.close()
+    return render_template('Login_Page.html', msg=msg)
+
+@app.route('/logout')
+def logout():
+    #session.clear()
+    session.pop('user') 
+    session.pop('id')
     return render_template('Login_Page.html')
 
 @app.route('/sign_up', methods=["GET", "POST"])
@@ -21,37 +48,23 @@ def register():
     Username = request.form.get('Username')
     Password = request.form.get('Password')
     Name = request.form.get('Name')
-    UserID = request.form.get('UserID')
-    print(Username, Password, Name, UserID)
+    print(Username, Password, Name)
+    conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
+    cur = conn.cursor()
+    cur.execute('SELECT MAX(UserID) FROM Users;')
+    maxUserID = cur.fetchall()
+    maxUserID = maxUserID[0][0]
     if request.method == 'POST':
-        Username = request.form.get('Username')
-        Password = request.form.get('Password')
-        Name = request.form.get('Name')
-        UserID = request.form.get('UserID')
-        print(Username, Password, Name, UserID) 
-        
-        conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-        cur = conn.cursor()
-        cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (int(UserID), Name, Username, Password))    
-        #cur.execute('SELECT* FROM Users WHERE Username = %s', (Username,))
-        #account = cur.fetchone()
-        conn.commit()
-        conn.close()
-    
-    #if account:
-        #msg = 'Account already exists'
-        #elif not re.match(r'[A-Za-z0-9]+', Username):
-            #msg = 'Username must contain only either characters and/or numbers'
-        #elif not Username or not Password or not Name:
-            #msg = 'Please fill out the form'
-        #else:
-            #conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
-            #cur = conn.cursor()
-            #cur.execute('INSERT INTO Users (userID, Username, password, Name) VALUES (% s, % s, % s, % s)', (UserID, Username, Password, Name, ))
-            #msg = 'You have successfully registered'
-            #conn.close()
-    #elif request.method == 'POST':
-        #msg = 'Please fill out the form'
+        cur.execute('SELECT* FROM Users WHERE Username = %s;', [Username])
+        account = cur.fetchone()
+        if account:
+            msg = 'Username Already Exists, Please Use A Different Username'
+        else:
+            cur.execute('INSERT INTO Users (userID, name, Username, password) VALUES (%s,%s,%s,%s);', (maxUserID+1, Name, Username, Password))    
+            conn.commit()
+            conn.close()
+            msg = 'User Added Successfully'
+
     return render_template('Register_User.html', msg=msg)
 
 @app.route('/Users_Table')
@@ -73,13 +86,27 @@ def about():
     return render_template('about_page.html')
 
 @app.route('/search_results')
-def search_results():
-    return render_template('search_results.html')
-
-@app.route('/search_results/<search_word>')
-#cahnged to capital S to let deploy
-def Search_results(search_word=None):
-    return render_template(url_for('search_results'), search_word = search_word)
+def show_results():
+    search_word = request.args.get('search_word')
+    allow_anagrams = request.args.get('allow_anagrams')
+    min_letters = request.args.get('min_letters')
+    max_letters = request.args.get('max_letters')
+    starts_with = request.args.get('starts_with')
+    ends_with = request.args.get('ends_with')
+    contains = request.args.get('contains')
+    fixed_letters = request.args.get('fixed_letters')
+    
+    result_list = get_anagrams.find_anagrams(search_word)
+    
+    if allow_anagrams == "false":
+        result_list = advanced_filters.remove_anagrams(search_word, result_list)
+    
+    result_list = advanced_filters.word_length_filter(result_list, min_letters, max_letters)
+    result_list = advanced_filters.starts_with_filter(starts_with, result_list)
+    result_list = advanced_filters.ends_with_filter(ends_with, result_list)
+    result_list = advanced_filters.contains_filter(contains, result_list)
+    
+    return render_template('search_results.html', result_list=result_list)
 
 @app.route('/search_history')
 def history():
@@ -88,8 +115,7 @@ def history():
         #open connection to db
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
-    
-        id = 1
+        id = int(session['id']
         cur.execute('SELECT * FROM SearchHistory WHERE userID = %s ORDER BY searchNum ASC;', [id])
         search = cur.fetchall()
 
@@ -108,8 +134,7 @@ def score():
         score = request.form.get('Score')
         print(score)
         try:
-            id = 1
-            
+            id = int(session['id']
             scoreInsert.insert(int(score), id)
             
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
@@ -126,7 +151,7 @@ def score():
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
             cur = conn.cursor()
 
-            id = 1
+            id = int(session['id']
             cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
             conn.close()

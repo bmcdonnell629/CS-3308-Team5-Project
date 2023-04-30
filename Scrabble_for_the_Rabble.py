@@ -115,8 +115,7 @@ def history():
         #open connection to db
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
-    
-        id = 1
+        id = int(session['id']
         cur.execute('SELECT * FROM SearchHistory WHERE userID = %s ORDER BY searchNum ASC;', [id])
         search = cur.fetchall()
 
@@ -135,8 +134,7 @@ def score():
         score = request.form.get('Score')
         print(score)
         try:
-            id = 1
-            
+            id = int(session['id']
             scoreInsert.insert(int(score), id)
             
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
@@ -153,7 +151,7 @@ def score():
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
             cur = conn.cursor()
 
-            id = 1
+            id = int(session['id']
             cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
             conn.close()
