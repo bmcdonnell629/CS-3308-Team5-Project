@@ -26,7 +26,7 @@ def login():
         if LoggedInUser:
             #session['loggedin'] = True
             #session['id'] = LoggedInUser['userID']
-            session["user"] = Username
+            session['user'] = Username
             msg = 'Logged in successfully'
         else:
             msg = 'Username/Password is incorrect'
@@ -35,8 +35,8 @@ def login():
 
 @app.route('/logout')
 def logout():
-    session.clear()
-    #session.pop('user', none)         
+    #session.clear()
+    session.pop('user', none)         
     return redirect(url_for('login'))
 
 @app.route('/sign_up', methods=["GET", "POST"])
