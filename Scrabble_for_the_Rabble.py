@@ -27,7 +27,7 @@ def login():
         LoggedInUser = cur.fetchone()
         if LoggedInUser:
             #session['loggedin'] = True
-            #session['id'] = LoggedInUser['userID']
+            session['id'] = LoggedInUser['userID']
             session['user'] = Username
             msg = 'Logged in successfully'
         else:
