@@ -34,22 +34,22 @@ def scrabbleScore(word):
     return score
 
 
-def find_anagrams(letters, freeTiles):
+def find_anagrams(user_input):
     '''
     main function for script
-    takes 2 inputs: string of letter input, int # of of free letters
-    returns anagrams and sub-anagrams from letter input and free tiles and values of scrabble scores
+    takes one argument: user_input, a string of letters and '?'.
+    returns anagrams and sub-anagrams from user_input and free tiles and values of scrabble scores
     '''
     #empty letter list 
     letterList = []
+    blankTiles = 0
 
-    #cmd line input of available letters
-    letterInput = letters.upper()
     #add letters from input to list of letters
-    for letter in letterInput:
-        letterList.append(letter)
-    #set number of blank tiles equal to input
-    blankTiles = int(freeTiles)
+    for character in user_input:
+        if character == "?":
+            blankTiles = blankTiles + 1
+        else:
+            letterList.append(character)
         
     #wordList to have dictionary read into
     wordList = []
