@@ -91,8 +91,56 @@ body {
 
 
 h1 {
-	margin: 50px;
+	margin-top: 50px;
+    margin-bottom: 10px;
 	
 	font-family: interstate_bold;
-	font-size: 30px;
+	font-size: 24px;
+}
+
+#input_word {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    
+    color: var(--cyan_after_dark);
+    font-size: 48px;
+}
+
+#results {
+    display: grid;
+    grid-template-columns: [page_left] 50% [page_middle] 50% [page_right];
+    grid-template-rows: [grid_top] 20px
+                        [column_labels] 40px;
+    align-items: center;
+
+    background-color: var(--newspaper_white);
+ 
+    font-family: interstate_bold;
+    font-size: 16px;
+}
+
+.result {
+    margin-right: 15px;
+
+    grid-column-start: page_left;
+
+    text-align: right;
+}
+
+#result_label {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.score {
+    margin-left: 15px;
+
+    grid-column-start: page_middle;
+
+    text-align: left;
+}
+
+#score_label {
+    font-size: 24px;
+    text-decoration: underline;
 }
