@@ -26,8 +26,8 @@ def login():
         cur.execute('SELECT* FROM Users WHERE Username = %s AND password = %s;', (Username, Password))
         LoggedInUser = cur.fetchone()
         if LoggedInUser:
-            #session['loggedin'] = True
-            #session['id'] = LoggedInUser['userID']
+            cur.execute('SELECT userID FROM Users WHERE Username = %s AND password = %s;', (Username, Password))
+            session['id'] = cur.fetchone()
             session['user'] = Username
             msg = 'Logged in successfully'
         else:
@@ -38,7 +38,8 @@ def login():
 @app.route('/logout')
 def logout():
     #session.clear()
-    session.pop('user')         
+    session.pop('user') 
+    session.pop('id')
     return render_template('Login_Page.html')
 
 @app.route('/sign_up', methods=["GET", "POST"])
