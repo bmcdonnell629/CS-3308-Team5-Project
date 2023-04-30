@@ -86,6 +86,14 @@ def about():
 @app.route('/search_results')
 def show_results():
     search_word = request.args.get('search_word')
+    allow_anagrams = request.args.get('allow_anagrams')
+    min_letters = request.args.get('min_letters')
+    max_letters = request.args.get('max_letters')
+    starts_with = request.args.get('starts_with')
+    ends_with = request.args.get('ends_with')
+    contains = request.args.get('contains')
+    fixed_letters = request.args.get('fixed_letters')
+    
     result_list = get_anagrams.find_anagrams(search_word, 0)
     
     return render_template('search_results.html', result_list=result_list)
