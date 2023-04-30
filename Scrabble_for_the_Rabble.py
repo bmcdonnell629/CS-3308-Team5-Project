@@ -7,7 +7,7 @@ import scoreInsert
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST']) 
 def search():
     return render_template('search_page.html')
 
@@ -83,7 +83,7 @@ def about():
     return render_template('about_page.html')
 
 @app.route('/search_results')
-def search_results():
+def show_results():
     return render_template('search_results.html')
 
 @app.route('/search_history')
