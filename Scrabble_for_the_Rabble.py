@@ -3,6 +3,7 @@ import psycopg2
 import wordScript
 import free_letter_wordScript
 import scoreInsert
+import get_anagrams
 
 app = Flask(__name__)
 app.secret_key = 'Scrabble'
