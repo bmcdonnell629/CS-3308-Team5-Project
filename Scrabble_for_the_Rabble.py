@@ -84,7 +84,10 @@ def about():
 
 @app.route('/search_results')
 def show_results():
-    return render_template('search_results.html')
+    search_word = request.args.get('search_word')
+    result_list = get_anagrams.find_anagrams(search_word, 0)
+    
+    return render_template('search_results.html', result_list=result_list)
 
 @app.route('/search_history')
 def history():
