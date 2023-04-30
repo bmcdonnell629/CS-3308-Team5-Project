@@ -24,7 +24,16 @@
             <div id="results">
                 <p class="result" id="result_label">WORD:</p>
                 <p class="score" id="score_label">SCORE:</p>
+                
+                {% for result in result_list %}
+                    <p class="result">{{ result[0] }}</p>
+                    <p class="score">{{ result[1] }}</p>
+                {% endfor %}
+                
             </div>
+            
+            <br>
+            <p>=== End of Results ===</p>
                 
 		</div>
 	</body>
