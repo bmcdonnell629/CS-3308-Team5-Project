@@ -15,7 +15,6 @@ def insert(score, id):
 
         #query db for mac score min score and # of user scores in db
         maxScoreNum = cur.fetchall()
-        maxScoreNum == []:
         maxScoreNum = maxScoreNum[0][0]
         cur.execute('SELECT MAX(score) FROM ScoreHistory WHERE userID = %s;', [id])
         maxScore = cur.fetchall()
