@@ -15,6 +15,7 @@ def insert(score, id):
     #query db for mac score min score and # of user scores in db
     maxScoreNum = cur.fetchone()
     if maxScoreNum == None:
+        print('==none')
         maxScoreNum = None
     else:
         maxScoreNum = maxScoreNum[0]
@@ -65,6 +66,8 @@ def insert(score, id):
                 for i in range(maxScoreNum, updateScoreNum-1, -1):
                     cur.execute('UPDATE ScoreHistory SET scoreNum = %s WHERE userID = %s AND scoreNum = %s;', (i+1, id, i))
                 cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, updateScoreNum, score))
+    
+    print('close')
 
     conn.commit()
     conn.close()
