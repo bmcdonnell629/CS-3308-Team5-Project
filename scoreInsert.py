@@ -24,10 +24,13 @@ def insert(score, id):
         minScore = minScore[0][0]
         #get date for day of score input
         Date = date.today()
+        print('tried')
     except:
          maxScoreNum = 0
+    print(maxScoreNum)
     if maxScoreNum == 0:
         cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, maxScoreNum+1, score))
+        print('insert')
     #if less than 10 total scores for user in db score will be added
     elif maxScoreNum < 10:
         #add at front if greater than max score
