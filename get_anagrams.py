@@ -1,3 +1,5 @@
+from flask import Flask
+app = Flask(__name__)
 
 '''
 Modified from free_letter_wordScript.py (original author: Brendan McDonnell, modified by: Nathaniel Mutkus)
@@ -63,7 +65,7 @@ def find_anagrams(user_input):
     #scrabble result dictionary with word as key and scabble score as value ex. {'are': '3'...}
     scrabbleList = {}
     #open scrabble dictionary and read each word into list
-    with App.open_resource('static/finalWordList.txt') as file:
+    with app.open_resource('static/finalWordList.txt') as file:
         for line in file:
             wordList.append(line.rstrip())
     #iterate through list one word at a time
