@@ -15,7 +15,6 @@ def insert(score, id):
     #query db for mac score min score and # of user scores in db
     maxScoreNum = cur.fetchone()
     if maxScoreNum == None:
-        print('==none')
         maxScoreNum = None
     else:
         maxScoreNum = maxScoreNum[0]
@@ -27,12 +26,8 @@ def insert(score, id):
     minScore = minScore[0][0]
     #get date for day of score input
     Date = date.today()
-    print('tried')
-    print(maxScoreNum)
     if maxScoreNum == None:
-        print('try insert')
         cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, 1, score))
-        print('insert')
     #if less than 10 total scores for user in db score will be added
     elif maxScoreNum < 10:
         #add at front if greater than max score
@@ -67,8 +62,6 @@ def insert(score, id):
                 for i in range(maxScoreNum, updateScoreNum-1, -1):
                     cur.execute('UPDATE ScoreHistory SET scoreNum = %s WHERE userID = %s AND scoreNum = %s;', (i+1, id, i))
                 cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, updateScoreNum, score))
-    
-    print('close')
 
     conn.commit()
     conn.close()
