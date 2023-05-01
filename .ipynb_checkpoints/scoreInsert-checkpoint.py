@@ -9,13 +9,13 @@ def insert(score, id):
     '''
     conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
     cur = conn.cursor()
-    cur.execute('SELECT MAX(scoreNum) FROM ScoreHistory WHERE userID = %s;', [id])
-    
-    #query db for mac score min score and # of user scores in db
-    maxScoreNum = cur.fetchall()
-    if maxScoreNum == []:
-        cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, 1, score))
-    else:
+   
+    try:
+        cur.execute('SELECT MAX(scoreNum) FROM ScoreHistory WHERE userID = %s;', [id])
+
+        #query db for mac score min score and # of user scores in db
+        maxScoreNum = cur.fetchall()
+        maxScoreNum == []:
         maxScoreNum = maxScoreNum[0][0]
         cur.execute('SELECT MAX(score) FROM ScoreHistory WHERE userID = %s;', [id])
         maxScore = cur.fetchall()
@@ -23,11 +23,14 @@ def insert(score, id):
         cur.execute('SELECT MIN(score) FROM ScoreHistory WHERE userID = %s;', [id])
         minScore = cur.fetchall()
         minScore = minScore[0][0]
-    #get date for day of score input
-    Date = date.today()
-    
+        #get date for day of score input
+        Date = date.today()
+    except:
+         maxScoreNum = 0
+    if maxScoreNum == 0:
+        cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, maxScoreNum+1, score))
     #if less than 10 total scores for user in db score will be added
-    if maxScoreNum < 10:
+    elif maxScoreNum < 10:
         #add at front if greater than max score
         if score > maxScore:
             for i in range(maxScoreNum, 0, -1):
