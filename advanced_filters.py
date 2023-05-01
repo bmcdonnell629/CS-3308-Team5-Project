@@ -144,3 +144,26 @@ def remove_anagrams(search_word, word_list):
                         continue
     
     return filtered_list
+
+def fixed_position_filter(fixed_word, word_list):
+    filtered_list = []
+    
+    for word in word_list:
+        match = True
+        
+        for i in range(len(fixed_word)):
+            if i >= len(word[0]):
+                match = False
+                break
+            elif fixed_word[i] == "*" or fixed_word[i] == "?":
+                continue
+            elif fixed_word[i] == word[0][i]:
+                continue
+            else:
+                match = False
+                break
+        
+        if match:
+            filtered_list.append(word)
+    
+    return filtered_list
