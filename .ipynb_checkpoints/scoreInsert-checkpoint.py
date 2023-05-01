@@ -30,7 +30,8 @@ def insert(score, id):
     print('tried')
     print(maxScoreNum)
     if maxScoreNum == None:
-        cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, maxScoreNum+1, score))
+        print('try insert')
+        cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, 1, score))
         print('insert')
     #if less than 10 total scores for user in db score will be added
     elif maxScoreNum < 10:
