@@ -13,20 +13,21 @@ def insert(score, id):
     
     #query db for mac score min score and # of user scores in db
     maxScoreNum = cur.fetchall()
-    maxScoreNum = maxScoreNum[0][0]
-    cur.execute('SELECT MAX(score) FROM ScoreHistory WHERE userID = %s;', [id])
-    maxScore = cur.fetchall()
-    maxScore = maxScore[0][0]
-    cur.execute('SELECT MIN(score) FROM ScoreHistory WHERE userID = %s;', [id])
-    minScore = cur.fetchall()
-    minScore = minScore[0][0]
-    
+    if maxScoreNum == []:
+        cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, 1, score))
+    else:
+        maxScoreNum = maxScoreNum[0][0]
+        cur.execute('SELECT MAX(score) FROM ScoreHistory WHERE userID = %s;', [id])
+        maxScore = cur.fetchall()
+        maxScore = maxScore[0][0]
+        cur.execute('SELECT MIN(score) FROM ScoreHistory WHERE userID = %s;', [id])
+        minScore = cur.fetchall()
+        minScore = minScore[0][0]
     #get date for day of score input
     Date = date.today()
-    if !maxScoreNum:
-        cur.execute('INSERT INTO ScoreHistory (userID, date, scoreNum, score) Values (%s, %s, %s, %s);', (id, Date, 1, score))
+    
     #if less than 10 total scores for user in db score will be added
-    elif maxScoreNum < 10:
+    if maxScoreNum < 10:
         #add at front if greater than max score
         if score > maxScore:
             for i in range(maxScoreNum, 0, -1):
