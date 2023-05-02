@@ -2,7 +2,7 @@ from flask import Flask, url_for, escape, render_template, session, request
 import psycopg2
 import wordScript
 import free_letter_wordScript
-import scoreInsert
+import dbInsert
 import get_anagrams
 import advanced_filters
 
@@ -95,7 +95,6 @@ def show_results():
     ends_with = request.args.get('ends_with')
     contains = request.args.get('contains')
     fixed_letters = request.args.get('fixed_letters')
-    print(search_word, allow_anagrams, min_letters, max_letters, starts_with, ends_with, contains, fixed_letters)
     
     result_list = get_anagrams.find_anagrams(search_word)
     
@@ -109,7 +108,8 @@ def show_results():
     result_list = advanced_filters.starts_with_filter(starts_with, result_list)
     result_list = advanced_filters.ends_with_filter(ends_with, result_list)
     result_list = advanced_filters.contains_filter(contains, result_list)
-    print(result_list)
+    
+    dbInsert.searchInsert(int(session.get('id')[0]), search_word, result_list)
     
     return render_template('search_results.html', result_list=result_list)
 
@@ -142,7 +142,7 @@ def score():
         try:
             id = int(session.get('id')[0])
             print(id)
-            scoreInsert.insert(int(score), id)
+            dbInsert.scoreInsert(int(score), id)
             
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
             cur = conn.cursor()
