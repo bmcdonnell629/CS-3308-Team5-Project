@@ -101,6 +101,9 @@ def show_results():
     if allow_anagrams == "false":
         result_list = advanced_filters.remove_anagrams(search_word, result_list)
     
+    if len(fixed_letters) > 0:
+        result_list = advanced_filters.fixed_position_filter(fixed_letters, result_list)
+        
     result_list = advanced_filters.word_length_filter(result_list, min_letters, max_letters)
     result_list = advanced_filters.starts_with_filter(starts_with, result_list)
     result_list = advanced_filters.ends_with_filter(ends_with, result_list)

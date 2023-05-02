@@ -29,7 +29,7 @@ def starts_with_filter(starting_letters, word_list):
             for i in range(len(starting_letters)):
                 if starting_letters[i] == "?":
                     continue
-                elif word[0][i] == starting_letters[i]:
+                elif word[0][i] == ststarting_lettersart[i]:
                     continue
                 else:
                     match = False
@@ -110,6 +110,8 @@ def contains_filter(req_letters, word_list):
 
 def remove_anagrams(search_word, word_list):
     filtered_list = []
+    sw = bytes(search_word, "utf-8")
+    qm = bytes("?", "utf-8")
     
     if "?" not in search_word:
         for word in word_list:
@@ -142,5 +144,28 @@ def remove_anagrams(search_word, word_list):
                         break
                     else:
                         continue
+    
+    return filtered_list
+
+def fixed_position_filter(fixed_word, word_list):
+    filtered_list = []
+    
+    for word in word_list:
+        match = True
+        
+        for i in range(len(fixed_word)):
+            if i >= len(word[0]):
+                match = False
+                break
+            elif fixed_word[i] == "*" or fixed_word[i] == "?":
+                continue
+            elif fixed_word[i] == word[0][i]:
+                continue
+            else:
+                match = False
+                break
+        
+        if match:
+            filtered_list.append(word)
     
     return filtered_list
