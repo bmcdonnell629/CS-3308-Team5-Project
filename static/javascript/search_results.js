@@ -27,4 +27,16 @@ function get_results() {
     const search_word = search_parameters.get("search_word");
     const input_word = document.getElementById("input_word");
     input_word.textContent = search_word;
+    
+    var result_html = "";
+    const result_list = {{ result_list|tojson }};
+    let i = 0;
+
+    while (i < result_list.length) {
+        result_html = result_html + "<p class='result'>" + result_list[i][0] + "</p>";
+        result_html = result_html + "<p class='score'>" + result_list[i][1] + "</p>";
+        i++;
+    }
+
+    document.getElementById("results").innerHTML += result_html;
 }
