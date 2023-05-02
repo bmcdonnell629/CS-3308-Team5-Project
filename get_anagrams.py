@@ -1,3 +1,5 @@
+from flask import Flask
+app = Flask(__name__)
 
 '''
 Modified from free_letter_wordScript.py (original author: Brendan McDonnell, modified by: Nathaniel Mutkus)
@@ -28,12 +30,12 @@ def search_word_scores(search_word_letters, result_word):
     
     for letter in result_word:
         if letter not in search_dict:
-            if search_dict["?"] > 0:
+            if "?" in search_dict and search_dict["?"] > 0:
                 search_dict["?"] = search_dict["?"] - 1
         elif search_dict[letter] > 0:
             word_score = word_score + letter_scores[letter]
             search_dict[letter] = search_dict[letter] - 1
-        elif search_dict["?"] > 0:
+        elif "?" in search_dict and search_dict["?"] > 0:
             search_dict["?"] = search_dict["?"] - 1
         else:
             print("Letter count is incorrect")
@@ -63,9 +65,9 @@ def find_anagrams(user_input):
     #scrabble result dictionary with word as key and scabble score as value ex. {'are': '3'...}
     scrabbleList = {}
     #open scrabble dictionary and read each word into list
-    with open('finalWordList.txt') as file:
+    with app.open_resource('static/finalWordList.txt') as file:
         for line in file:
-            wordList.append(line.rstrip())
+            wordList.append(line.rstrip().decode())
     #iterate through list one word at a time
     for word in wordList:
         #set flag to 1
@@ -75,6 +77,7 @@ def find_anagrams(user_input):
         #call characterCount which returns a dictionary with a key of letter and a value of the number of times letter in word
         #ex word = hello charCount = {'h':'1', 'e':1, 'l':'2', 'o':1}
         charCount = characterCount(word)
+        
         #key = letter
         for key in charCount:
             #if key/letter not in Scrabble letter list
