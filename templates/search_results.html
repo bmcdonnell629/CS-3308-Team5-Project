@@ -24,13 +24,20 @@
             <div id="results">
                 <p class="result" id="result_label">WORD:</p>
                 <p class="score" id="score_label">SCORE:</p>
-                
-                {% for result in result_list %}
-                    <p class="result">{{ result[0] }}</p>
-                    <p class="score">{{ result[1] }}</p>
-                {% endfor %}
-                
             </div>
+            
+            <script>
+                var result_html = "";
+                const result_list = {{ result_list|tojson }};
+                let i = 0;
+                while (i < result_list.length) {
+                    result_html = result_html + "<p class='result'>" + result_list[i][0] + "</p>";
+                    result_html = result_html + "<p class='score'>" + result_list[i][1] + "</p>";
+                    i++;
+                }
+
+                document.getElementById("results").innerHTML += result_html;
+            </script>
             
             <br>
             <p>End of Results</p>
