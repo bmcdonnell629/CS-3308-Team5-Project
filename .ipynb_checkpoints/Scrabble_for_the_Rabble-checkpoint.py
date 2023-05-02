@@ -111,7 +111,7 @@ def show_results():
     try:
         id = int(session.get('id')[0])
         print(id, search_word, result_list)
-        dbInsert.searchInsert(), search_word, result_list)
+        dbInsert.searchInsert(id, search_word, result_list)
     except:
         print('error')
     
