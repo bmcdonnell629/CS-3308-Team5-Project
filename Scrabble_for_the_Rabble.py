@@ -95,7 +95,6 @@ def show_results():
     ends_with = request.args.get('ends_with')
     contains = request.args.get('contains')
     fixed_letters = request.args.get('fixed_letters')
-    print(search_word, allow_anagrams, min_letters, max_letters, starts_with, ends_with, contains, fixed_letters)
     
     result_list = get_anagrams.find_anagrams(search_word)
     
@@ -109,7 +108,6 @@ def show_results():
     result_list = advanced_filters.starts_with_filter(starts_with, result_list)
     result_list = advanced_filters.ends_with_filter(ends_with, result_list)
     result_list = advanced_filters.contains_filter(contains, result_list)
-    print(result_list)
     
     return render_template('search_results.html', result_list=result_list)
 
