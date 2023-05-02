@@ -100,17 +100,24 @@ h1 {
 
 #input_word {
     margin-top: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     
     color: var(--cyan_after_dark);
     font-size: 48px;
 }
 
+#filters_used {
+    font-size: 16px;
+}
+
+#filters_used span {
+    color: var(--cyan_after_dark);
+}
+
 #results {
     display: grid;
     grid-template-columns: [page_left] 50% [page_middle] 50% [page_right];
-    grid-template-rows: [grid_top] 20px
-                        [column_labels] 40px;
+    grid-template-rows: [grid_top] 50px;
     align-items: center;
 
     background-color: var(--newspaper_white);
@@ -130,6 +137,8 @@ h1 {
 }
 
 #result_label {
+    margin-bottom: 5px;
+    
     font-size: 24px;
     text-decoration: underline;
 }
@@ -145,6 +154,8 @@ h1 {
 }
 
 #score_label {
+    margin-bottom: 5px;
+    
     font-size: 24px;
     text-decoration: underline;
 }

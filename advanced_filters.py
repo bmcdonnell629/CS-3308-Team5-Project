@@ -29,7 +29,7 @@ def starts_with_filter(starting_letters, word_list):
             for i in range(len(starting_letters)):
                 if starting_letters[i] == "?":
                     continue
-                elif word[0][i] == ststarting_lettersart[i]:
+                elif word[0][i] == starting_letters[i]:
                     continue
                 else:
                     match = False
