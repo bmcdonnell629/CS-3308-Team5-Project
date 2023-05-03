@@ -32,32 +32,37 @@ function get_results() {
     const filters_used = document.getElementById("filters_used");
     
     const allow_anagrams = search_parameters.get("allow_anagrams");
-    if (allow_anagrams == "true") {
-        filters_used.innerHTML += "Anagrams allowed: <span>YES</span><br>";
-    } else {
-        filters_used.innerHTML += "Anagrams allowed: <span>NO</span><br>";
-    }
-    
     const min_letters = search_parameters.get("min_letters");
     const max_letters = search_parameters.get("max_letters");
-    if (min_letters == max_letters) {
-        filters_used.innerHTML += "<span>" + min_letters + "</span> letter words<br>";
-    } else {
-        filters_used.innerHTML += "<span>" + Math.min(parseInt(min_letters), parseInt(max_letters)) + "</span> to <span>" + Math.max(parseInt(min_letters), parseInt(max_letters)) + "</span> letter words<br>";
-    }
-    
     const starts_with = search_parameters.get("starts_with");
     const ends_with = search_parameters.get("ends_with");
-    if (starts_with != "" || ends_with != "") {
-        filters_used.innerHTML += "<span>" + starts_with + "</span>______<span>" + ends_with + "</span><br>";
-    }
-    
     const contains = search_parameters.get("contains");
-    if (contains != "") {
-        filters_used.innerHTML += "Contains: <span>" + contains + "</span><br>";
-    }
+    const fixed_letters = search_parameters.get("fixed_letters");        
     
-    const fixed_letters = search_parameters.get("fixed_letters");
+    filters_used.innerHTML = "<br>";
+    
+    if (allow_anagrams != "true") {
+        filters_used.innerHTML += "Anagrams allowed: <span>NO</span><br>";
+    }
+
+    if (min_letters == max_letters) {
+        filters_used.innerHTML += "<span>" + min_letters + "</span> letter words<br>";
+    } else if (min_letters != "2" || max_letters != "15") {
+        filters_used.innerHTML += "<span>" + Math.min(parseInt(min_letters), parseInt(max_letters)) + "</span> to <span>" + Math.max(parseInt(min_letters), parseInt(max_letters)) + "</span> letter words<br>";
+    }
+
+    if (starts_with != "") {
+        filters_used.innerHTML += "Word must begin with: <span>" + starts_with + "</span>...<br>";
+    }
+        
+    if (ends_with != "") {
+        filters_used.innerHTML += "Word must end with: ...<span>" + ends_with + "</span><br>";
+    }
+
+    if (contains != "") {
+        filters_used.innerHTML += "Word must contain: ...<span>" + contains + "</span>...<br>";
+    }
+
     if (fixed_letters != "") {
         filters_used.innerHTML += "Letters with fixed positions: ";
         for (const letter of fixed_letters) {
@@ -69,4 +74,6 @@ function get_results() {
         }
         filters_used.innerHTML += "</span><br>";
     }
+    
+    return;
 }
