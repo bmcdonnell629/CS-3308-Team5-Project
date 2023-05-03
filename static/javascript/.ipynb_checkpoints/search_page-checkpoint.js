@@ -9,8 +9,8 @@ window.onload = function() {
     advanced_button.addEventListener("click", advanced);
     const search_button = document.querySelector("#search_button");
     search_button.addEventListener("click", search);
-    const home_button = document.querySelector("#score_button");
-    home_button.addEventListener("click", score);
+    const score_button = document.querySelector("#score_button");
+    score_button.addEventListener("click", score);
 }
 
 window.addEventListener("keypress", function(event) {    
