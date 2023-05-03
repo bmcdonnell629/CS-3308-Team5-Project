@@ -1,0 +1,37 @@
+<!doctype html>
+<!--HTML for the Scrabble for the Rabble: About Page-->
+<html>
+	<head>
+		<title>Scrabble for the Rabble</title>
+        <link rel="shortcut icon" href="static/css/favicon.ico">
+        <link rel="stylesheet" href="static/css/project_template.css">
+        <script src="static/javascript/project_template.js"></script>
+	</head>
+	<body>
+		<div id='header'>
+			<div id='site_name'><span>S</span>crabble for the <span>R</span>abble</div>
+			<button id='login_button'>Login</button>
+            <button id='score_button'>Scores</button>
+			<button id='about_button'>About</button>
+			<button id='home_button'>Home</button>
+		</div>
+		<div id='main'>
+			<h1>About Us</h1>
+			<p>"What words can I make with my letters?"</p>
+            <p>This is the question that underlies Scrabble for the Rabble.</p>
+            <p>Grow your vocabulary of useful Scrabble words while boosting your gameplay.</p>
+            <p>Just type in your letters and start unlocking words!</p>
+            <button id='try_it'>Give it a Try!</button>
+            <script>
+                const try_it = document.getElementById("try_it");                           // Try it button on about page
+                try_it.addEventListener("click", function(){
+                    location.href="https://scrabble-for-the-rabble.onrender.com/";
+                                    });
+            </script>
+		</div>
+        <br>
+        <div>
+            <img src="static/images/pixabay_words.jpg" alt="words" width="650" height="500">
+        </div>
+	</body>
+</html>

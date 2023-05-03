@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>Scrabble for the Rabble</title>
+        <link rel="shortcut icon" href="static/css/favicon.ico">
+        <link rel="stylesheet" href="static/css/search_results.css">
+        <script src="static/javascript/search_results.js"></script>
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="site_name"><span>S</span>CRABBLE FOR THE <span>R</span>ABBLE</div>
+			
+            <button id="login_button">LOGIN</button>
+            <button id='score_button'>SCORES</button>
+			<button id="about_button">ABOUT</button>
+			<button id="home_button">HOME</button>
+		</div>
+
+		<div id="main">
+            <h1>SEARCH RESULTS</h1>
+            <p id="input_word"></p>
+            <p id="filters_used"></p>
+            
+            <div id="results">
+                <p class="result" id="result_label">WORD:</p>
+                <p class="score" id="score_label">SCORE:</p>
+            </div>
+            
+            <script>
+                var result_html = "";
+                const result_list = {{ result_list|tojson }};
+                let i = 0;
+                while (i < result_list.length) {
+                    result_html = result_html + "<p class='result'>" + result_list[i][0] + "</p>";
+                    result_html = result_html + "<p class='score'>" + result_list[i][1] + "</p>";
+                    i++;
+                }
+
+                document.getElementById("results").innerHTML += result_html;
+            </script>
+            
+            <br>
+            <p>End of Results</p>
+                
+		</div>
+	</body>
+</html>
