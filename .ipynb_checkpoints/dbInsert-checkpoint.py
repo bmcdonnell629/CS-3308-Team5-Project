@@ -73,6 +73,8 @@ def searchInsert(id, words, letters):
     cur = conn.cursor()   
     #cur.execute('Delete from SearchHistory where userID = 23;')
     print(words)
+    print(id)
+    print(letters)
     word = []
     score = []
     for i in len(words):
