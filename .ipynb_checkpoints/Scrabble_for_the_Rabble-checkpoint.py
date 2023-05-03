@@ -108,9 +108,10 @@ def show_results():
     result_list = advanced_filters.starts_with_filter(starts_with, result_list)
     result_list = advanced_filters.ends_with_filter(ends_with, result_list)
     result_list = advanced_filters.contains_filter(contains, result_list)
+    id = int(session.get('id')[0])
+    print(id, search_word, result_list)
     try:
-        id = int(session.get('id')[0])
-        print(id, search_word, result_list)
+        
         dbInsert.searchInsert(id, search_word, result_list)
     except:
         print('error')
