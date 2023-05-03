@@ -162,12 +162,13 @@ h1 span {
     display: grid;
 	grid-template-columns: [page_left] 50% [page_middle] 40px [line_3] 30px [line_4] 40px [line_5] 50px [page_right];
 	grid-template-rows: [grid_top] 20px
-						[allow_anagrams] 40px
-						[word_length] 40px
-						[starts_with] 40px
-						[ends_with] 40px
-						[contains] 40px
-						[fixed_letters] 40px;
+			[allow_anagrams] 40px
+			[word_length] 40px
+			[starts_with] 40px
+			[ends_with] 40px
+			[contains] 40px
+			[fixed_letters] 40px
+                        [last] 40px;
 	align-items: center;
 
     background-color: var(--newspaper_white);
@@ -191,6 +192,7 @@ h1 span {
     
     width: 12px;
     margin-left: 30px;
+    position: relative;
     
     grid-column-start: page_right;
     
@@ -202,6 +204,71 @@ h1 span {
     text-align: center;
     font-size: 11px;
     color: var(--newspaper_white);
+}
+
+.filter_tooltip:before {
+    content: attr(data-text);
+    
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 100%;
+    margin-left: 15px;
+    padding: 10px;
+
+    border-radius: 5px;
+    
+    background-color: var(--off_black);
+    
+    font-family: monospace;
+    font-size: 12px;
+    text-align: left;
+    color: var(--newspaper_white);
+    
+    display:none;
+}
+
+#aa_tip:before {
+    width: 420px;
+}
+
+#wl_tip:before {
+    width: 200px;
+}
+
+#sw_tip:before {
+    width: 180px;
+}
+
+#ew_tip:before {
+    width: 180px;
+}
+
+#c_tip:before {
+    width: 180px;
+}
+
+#fl_tip:before {
+    width: 600px;
+}
+
+.filter_tooltip:after {
+  content: "";
+    
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  margin-left: -5px;
+ 
+  border: 10px solid var(--off_black);
+  border-color: transparent var(--off_black) transparent transparent;
+  
+  display:none;
+}
+
+.filter_tooltip:hover:before, .filter_tooltip:hover:after {
+  display:block;
 }
 
 
@@ -376,6 +443,17 @@ h1 span {
 
 #fl_tip {
     grid-row-start: fixed_letters;
+}
+
+#fl_text {
+    width: 165px;
+	height: 24px;
+    margin-top: 0px;
+    
+    grid-column-start: page_middle;
+    grid-row-start: last;
+    
+    font-size: 12px;
 }
 
 
