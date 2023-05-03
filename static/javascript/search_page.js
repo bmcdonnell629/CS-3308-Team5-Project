@@ -52,7 +52,7 @@ function search() {
     const contains = document.getElementById("contain_box").value.toUpperCase();
     const fixed_letters = document.getElementById("fixed_box").value.toUpperCase();
     
-    location.href = "https://coding.csel.io/user/mutkus/proxy/5000/search_results?search_word="+search_word+
+    location.href = "https://scrabble-for-the-rabble.onrender.com/search_results?search_word="+search_word+
         "&allow_anagrams="+allow_anagrams+
         "&min_letters="+min_letters+
         "&max_letters="+max_letters+
