@@ -114,7 +114,7 @@ def show_results():
     print(result_list)
     try:
         
-        dbInsert.searchInsert(id, search_word, result_list)
+        dbInsert.searchInsert(id, result_list, search_word )
     except:
         print('error')
     
