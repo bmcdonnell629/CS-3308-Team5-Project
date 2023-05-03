@@ -7,6 +7,8 @@ window.onload = function() {
     home_button.addEventListener("click", home);
     const score_button = document.querySelector("#score_button");
     score_button.addEventListener("click", score);
+    const logout_button = document.querySelector("#logout_button");
+    logout_button.addEventListener("click", logout);
     
     get_results();
 }
@@ -25,6 +27,10 @@ function home() {
 
 function score() {
     location.href="https://scrabble-for-the-rabble.onrender.com/user_score";
+}
+
+function logout() {
+    location.href="https://scrabble-for-the-rabble.onrender.com/logout";
 }
 
 function get_results() {
