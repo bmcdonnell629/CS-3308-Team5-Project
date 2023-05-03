@@ -109,7 +109,7 @@ def show_results():
     result_list = advanced_filters.ends_with_filter(ends_with, result_list)
     result_list = advanced_filters.contains_filter(contains, result_list)
     id = int(session.get('id')[0])
-    print('id: ' + id)
+    print('id: ' + str(id))
     print('letters: ' + search_word)
     print(result_list)
     try:
