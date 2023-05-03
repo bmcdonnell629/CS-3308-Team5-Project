@@ -1,0 +1,117 @@
+<!doctype html>
+
+<html>
+    
+    <head>
+        <title>Scrabble for the Rabble</title>
+        <link rel="shortcut icon" href="static/css/favicon.ico">
+        <link rel="stylesheet" href="static/css/search_page.css">
+        <script src="static/javascript/search_page.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <div id="site_name"><span>S</span>CRABBLE FOR THE <span>R</span>ABBLE</div>
+            
+            <button id="login_button">LOGIN</button>
+            <button id="about_button">ABOUT</button>
+            <button id="home_button">HOME</button>
+        </div>
+
+        <div id="main">
+            <h1><span>W</span>ELCOME TO <span>S</span>CRABBLE FOR THE <span>R</span>ABBLE<span>&#33</span></h1>
+			
+            <p id="input_prompt">Enter up to 15 letters in any order to find matching words:</p>
+                
+            <input id="search_bar"
+                   maxlength="15"
+                   onkeydown="return /[a-zA-Z?]/i.test(event.key)"
+                   placeholder="Enter your letters here...">
+			
+            <p id="search_tip">Use <span>?</span> as wildcards/blank tiles.  Example: <span>RA??LE</span></p>
+			
+            <button id="advanced_button">ADVANCED SEARCH +</button>
+
+            <div id="advanced_filters">
+                <label class="filter_label" id="allow_anagrams">Allow anagrams:</label>
+                <input class="checkbox"
+                       type="checkbox"
+                       checked="checked">
+                <p class="filter_tooltip" id="aa_tip">?</p>
+                <br>
+
+                <label class="filter_label">Word length:</label>
+                
+                <select class="dropdown" id="min_letters">
+                    <option value="2" selected="selected">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                </select>
+                
+                <label id="to">to</label>
+                
+                <select class="dropdown" id="max_letters">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15" selected="selected">15</option>
+                </select>
+                <label id="letters">letters</label>
+                <p class="filter_tooltip" id="wl_tip">?</p>
+
+                <label class="filter_label" id="starts_with">Starts with:</label>
+                <input class="filter_box"
+                       maxlength="15"
+                       onkeydown="return /[a-zA-Z?]/i.test(event.key)"
+                       id="start_box">
+                <p class="filter_tooltip" id="sw_tip">?</p>
+
+                <label class="filter_label" id="ends_with">Ends with:</label>
+                <input class="filter_box"
+                       maxlength="15"
+                       onkeydown="return /[a-zA-Z?]/i.test(event.key)"
+                       id="end_box">
+                <p class="filter_tooltip" id="ew_tip">?</p>
+
+                <label class="filter_label" id="contains">Contains:</label>
+                <input class="filter_box"
+                       maxlength="15"
+                       onkeydown="return /[a-zA-Z?]/i.test(event.key)"
+                       id="contain_box">
+                <p class="filter_tooltip" id="c_tip">?</p>
+
+                <label class="filter_label" id="fixed_letters">Fixed letters:</label>
+                <input class="filter_box"
+                       maxlength="15"
+                       onkeydown="return /[a-zA-Z?*]/i.test(event.key)"
+                       id="fixed_box">
+                <p class="filter_tooltip" id="fl_tip">?</p>
+            </div>
+
+            <button id="search_button">SEARCH</button>
+
+        </div>
+    </body>
+
+</html>
