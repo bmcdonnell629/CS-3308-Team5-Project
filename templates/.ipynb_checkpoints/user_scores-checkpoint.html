@@ -36,7 +36,10 @@
                 </tr>
             {% endfor %}   
          </table>
-            <a href="{{ url_for('history') }}" class="button">Search History</a>
+            <br>
+            <form action="{{ url_for('history') }}">
+             <button type="submit">Search History</button>
+              </form>
 		</div>
 	</body>
 </html>
