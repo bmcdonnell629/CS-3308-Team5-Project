@@ -5,6 +5,8 @@ window.onload = function() {
     about_button.addEventListener("click", about);
     const home_button = document.querySelector("#home_button");
     home_button.addEventListener("click", home);
+    const score_button = document.querySelector("#score_button");
+    home_button.addEventListener("click", score);
     
 }
 
@@ -18,4 +20,8 @@ function about(){
 
 function home(){
     location.href="https://scrabble-for-the-rabble.onrender.com/";
+}
+
+function score(){
+    location.href="https://scrabble-for-the-rabble.onrender.com/user_score";
 }

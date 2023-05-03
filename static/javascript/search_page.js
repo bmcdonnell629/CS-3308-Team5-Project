@@ -9,6 +9,8 @@ window.onload = function() {
     advanced_button.addEventListener("click", advanced);
     const search_button = document.querySelector("#search_button");
     search_button.addEventListener("click", search);
+    const home_button = document.querySelector("#score_button");
+    home_button.addEventListener("click", score);
 }
 
 window.addEventListener("keypress", function(event) {    
@@ -27,6 +29,10 @@ function about() {
 
 function home() {
     location.href="https://scrabble-for-the-rabble.onrender.com/";
+}
+
+function score() {
+    location.href="https://scrabble-for-the-rabble.onrender.com/user_score";
 }
 
 function advanced() {
