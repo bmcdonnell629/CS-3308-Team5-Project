@@ -38,7 +38,7 @@
                 <input class="checkbox"
                        type="checkbox"
                        checked="checked">
-                <p class="filter_tooltip" id="aa_tip">?</p>
+                <span data-text="Checked: Allow letters to be rearranged to find matching words.  Unchecked: Matches must use letters in the order typed in the search bar." class="filter_tooltip" id="aa_tip">?</span>
                 <br>
 
                 <label class="filter_label">Word length:</label>
@@ -79,35 +79,36 @@
                     <option value="15" selected="selected">15</option>
                 </select>
                 <label id="letters">letters</label>
-                <p class="filter_tooltip" id="wl_tip">?</p>
+                <span data-text="Limit search results to words in the given range." class="filter_tooltip" id="wl_tip">?</span>
 
                 <label class="filter_label" id="starts_with">Starts with:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?]/i.test(event.key)"
                        id="start_box">
-                <p class="filter_tooltip" id="sw_tip">?</p>
+                <span data-text="Words must begin with these letters, in order." class="filter_tooltip" id="sw_tip">?</span>
 
                 <label class="filter_label" id="ends_with">Ends with:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?]/i.test(event.key)"
                        id="end_box">
-                <p class="filter_tooltip" id="ew_tip">?</p>
+                <span data-text="Words must end with these letters, in order." class="filter_tooltip" id="ew_tip">?</span>
 
                 <label class="filter_label" id="contains">Contains:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?]/i.test(event.key)"
                        id="contain_box">
-                <p class="filter_tooltip" id="c_tip">?</p>
+                <span data-text="Words must contain these letters, in order." class="filter_tooltip" id="c_tip">?</span>
 
                 <label class="filter_label" id="fixed_letters">Fixed letters:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?*]/i.test(event.key)"
                        id="fixed_box">
-                <p class="filter_tooltip" id="fl_tip">?</p>
+                <span data-text="Specify the required positions of individual letters.  Example: *A*B indicates 'A' must occupy the second position and 'B' must occupy the fourth position." class="filter_tooltip" id="fl_tip">?</span>
+                <p id="fl_text">Ex: **A for A in 3rd position</p>
             </div>
 
             <button id="search_button">SEARCH</button>
