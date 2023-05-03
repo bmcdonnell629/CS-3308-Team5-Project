@@ -77,7 +77,7 @@ def searchInsert(id, words, letters):
     print(letters)
     word = []
     score = []
-    for i in len(words):
+    for i in range(len(words)):
         word.append(words[i][0])
         score.append(words[i][1])
     cur.execute('Select MAX(searchNum) from SearchHistory where userID = %s;', [id])
