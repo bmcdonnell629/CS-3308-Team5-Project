@@ -5,7 +5,7 @@ window.onload = function() {
     about_button.addEventListener("click", about);
     const home_button = document.querySelector("#home_button");
     home_button.addEventListener("click", home);
-    const home_button = document.querySelector("#score_button");
+    const score_button = document.querySelector("#score_button");
     score_button.addEventListener("click", score);
     
     get_results();
