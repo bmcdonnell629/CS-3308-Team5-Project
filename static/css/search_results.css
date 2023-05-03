@@ -69,7 +69,7 @@ body {
 
 
 /* Setup main buttons */
-#home_button, #about_button, #search_button, #login_button {
+#home_button, #about_button, #search_button, #score_button, #login_button {
 	float: right;
 	position: relative;
 	top: 50%;
