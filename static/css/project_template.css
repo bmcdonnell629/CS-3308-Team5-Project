@@ -73,7 +73,7 @@ body {
 	font-size: 24px;
 }
 
-#home_button, #about_button, #score_button, #login_button {
+#home_button, #about_button, #score_button, #logout_button, #login_button {
 	/* Sizing/Positioning */
 	margin-left: 5px;
 	border: 0px;
