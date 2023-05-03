@@ -108,12 +108,8 @@ def show_results():
     result_list = advanced_filters.starts_with_filter(starts_with, result_list)
     result_list = advanced_filters.ends_with_filter(ends_with, result_list)
     result_list = advanced_filters.contains_filter(contains, result_list)
-    id = int(session.get('id')[0])
-    print('id: ' + str(id))
-    print('letters: ' + search_word)
-    print(result_list)
     try:
-        
+        id = int(session.get('id')[0])
         dbInsert.searchInsert(id, result_list, search_word )
     except:
         print('error')
@@ -129,7 +125,6 @@ def history():
         conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
         cur = conn.cursor()
         id = int(session.get('id')[0])
-        print(id)
         cur.execute('SELECT * FROM SearchHistory WHERE userID = %s ORDER BY searchNum ASC;', [id])
         search = cur.fetchall()
         conn.close()
@@ -145,10 +140,8 @@ def score():
     scores = []
     if request.method == "POST":
         score = request.form.get('Score')
-        print(score)
         try:
             id = int(session.get('id')[0])
-            print(id)
             dbInsert.scoreInsert(int(score), id)
             
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
@@ -165,7 +158,6 @@ def score():
             conn = psycopg2.connect("postgres://scrabble_db_user:2JjvW1gU3XXmBbtU3ranf8JX7WBoGfeo@dpg-cgv0079euhlk3uujt5q0-a.oregon-postgres.render.com/scrabble_db")
             cur = conn.cursor()
             id = int(session.get('id')[0])
-            print(id)
             cur.execute('SELECT * FROM ScoreHistory WHERE userID = %s ORDER BY scoreNum ASC;', [id])
             scores = cur.fetchall()
             conn.close()

@@ -72,9 +72,6 @@ def searchInsert(id, words, letters):
 
     cur = conn.cursor()   
     #cur.execute('Delete from SearchHistory where userID = 23;')
-    print(words)
-    print(id)
-    print(letters)
     word = []
     score = []
     for i in range(len(words)):
@@ -92,15 +89,12 @@ def searchInsert(id, words, letters):
         else:
             cur.execute('INSERT INTO SearchHistory (userID, searchNum, letters) VALUES (%s, %s, %s);', (id, 1, letters))
             for i in range(len(word)):
-                print(word)
-                print(i)
                 cur.execute('UPDATE SearchHistory SET word%s = %s , score%s = %s;', (i+1, word[i], i+1, score[i]))
     
     
     else:
         if searchNum == 5:
             cur.execute('DELETE FROM SearchHistory WHERE userID = %s AND searchNum = 5;', [id])
-            print('delete')
             for i in range(4,0,-1):
                 cur.execute('UPDATE SearchHistory SET searchNum = %s where userID = %s and searchNum = %s;', (i+1, id, i))
             if len(word) >=5:
