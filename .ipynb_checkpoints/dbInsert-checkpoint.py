@@ -81,7 +81,7 @@ def searchInsert(id, words, letters):
     cur.execute('Select MAX(searchNum) from SearchHistory where userID = %s;', [id])
     searchNum = cur.fetchone()
     searchNum = searchNum[0]
-    
+    print(searchNum)
     if searchNum == None:
         if len(word) >=5:
             cur.execute('INSERT INTO SearchHistory VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);', (id, 1, letters, word[0], score[0], word[1], score[1], word[2], score[2], word[3], score[3], word[4], score[4]))
@@ -98,6 +98,7 @@ def searchInsert(id, words, letters):
     else:
         if searchNum == 5:
             cur.execute('DELETE FROM SearchHistory WHERE userID = %s AND searchNum = 5;', [id])
+            print('delete')
             for i in range(4,0,-1):
                 cur.execute('UPDATE SearchHistory SET searchNum = %s where userID = %s and searchNum = %s;', (i+1, id, i))
             if len(word) >=5:
