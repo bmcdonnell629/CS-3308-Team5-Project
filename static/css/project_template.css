@@ -93,6 +93,15 @@ body {
 	border-right: 2px solid var(--newspaper_white);
 }
 
+#score_button {
+	/* Sizing/Positioning */
+	padding-left: 10px;
+	padding-right: 10px;
+
+	/* Border properties */
+	border-right: 2px solid var(--newspaper_white);
+}
+
 #login_button {
 	/* Sizing/Positioning */
 	margin-right: 10px;
