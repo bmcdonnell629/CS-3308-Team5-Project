@@ -37,7 +37,7 @@
                 <input class="checkbox"
                        type="checkbox"
                        checked="checked">
-                
+                <p class="filter_tooltip" id="aa_tip">?</p>
                 <br>
 
                 <label class="filter_label">Word length:</label>
@@ -78,30 +78,35 @@
                     <option value="15" selected="selected">15</option>
                 </select>
                 <label id="letters">letters</label>
+                <p class="filter_tooltip" id="wl_tip">?</p>
 
                 <label class="filter_label" id="starts_with">Starts with:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?]/i.test(event.key)"
                        id="start_box">
+                <p class="filter_tooltip" id="sw_tip">?</p>
 
                 <label class="filter_label" id="ends_with">Ends with:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?]/i.test(event.key)"
                        id="end_box">
+                <p class="filter_tooltip" id="ew_tip">?</p>
 
                 <label class="filter_label" id="contains">Contains:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?]/i.test(event.key)"
                        id="contain_box">
+                <p class="filter_tooltip" id="c_tip">?</p>
 
                 <label class="filter_label" id="fixed_letters">Fixed letters:</label>
                 <input class="filter_box"
                        maxlength="15"
                        onkeydown="return /[a-zA-Z?*]/i.test(event.key)"
                        id="fixed_box">
+                <p class="filter_tooltip" id="fl_tip">?</p>
             </div>
 
             <button id="search_button">SEARCH</button>

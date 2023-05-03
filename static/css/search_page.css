@@ -121,7 +121,7 @@ h1 span {
 }
 
 #search_bar:focus::placeholder {
-  color: transparent;
+    color: transparent;
 }
 
 
@@ -141,9 +141,9 @@ h1 span {
 
 /* Toggles advanced filters */
 #advanced_button {
-  background-color: var(--newspaper_white);
+    background-color: var(--newspaper_white);
   
-  color: var(--cyan_after_dark);
+    color: var(--cyan_after_dark);
 }
 
 #advanced_button::first-letter {
@@ -153,27 +153,27 @@ h1 span {
 
 /* Allows for more user input */
 #advanced_filters {
-  /* Hide filters by default */
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
+    /* Hide filters by default */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
 
-  /* Align filter elements to grid */
-  display: grid;
+    /* Align filter elements to grid */
+    display: grid;
 	grid-template-columns: [page_left] 50% [page_middle] 40px [line_3] 30px [line_4] 40px [line_5] 50px [page_right];
 	grid-template-rows: [grid_top] 20px
-											[allow_anagrams] 40px
-											[word_length] 40px
-											[starts_with] 40px
-											[ends_with] 40px
-											[contains] 40px
-											[fixed_letters] 40px;
+						[allow_anagrams] 40px
+						[word_length] 40px
+						[starts_with] 40px
+						[ends_with] 40px
+						[contains] 40px
+						[fixed_letters] 40px;
 	align-items: center;
 
-  background-color: var(--newspaper_white);
+    background-color: var(--newspaper_white);
   
-  font-family: interstate_bold;
-  font-size: 16px;
+    font-family: interstate_bold;
+    font-size: 16px;
 }
 
 
@@ -186,6 +186,25 @@ h1 span {
 }
 
 
+.filter_tooltip {
+    cursor: help;
+    
+    width: 12px;
+    margin-left: 30px;
+    
+    grid-column-start: page_right;
+    
+    border: 2px solid var(--spinach);
+    border-radius: 10px;
+    
+    background-color: var(--cyan_after_dark);
+    
+    text-align: center;
+    font-size: 11px;
+    color: var(--newspaper_white);
+}
+
+
 #allow_anagrams {
 	grid-row-start: allow_anagrams;
 }
@@ -193,41 +212,46 @@ h1 span {
 
 /* Setup custom checkbox */
 .checkbox {
-  display: grid;
-  width: 16px;
-  height: 16px;
-  appearance: none;
-  background-color: var(--newspaper_white);
+    display: grid;
+    width: 16px;
+    height: 16px;
+    appearance: none;
+    background-color: var(--newspaper_white);
 
-  grid-column-start: page_middle;
-	grid-row-start: allow_anagrams;
+    grid-column-start: page_middle;
+    grid-row-start: allow_anagrams;
   
-  border-radius: 3px;
-  border: 1px solid var(--off_black);
+    border-radius: 3px;
+    border: 1px solid var(--off_black);
 
-  place-content: center;
+    place-content: center;
 }
 
 .checkbox:checked {
-  background-color: var(--cyan_after_dark);
+    background-color: var(--cyan_after_dark);
 }
 
 .checkbox::before {
-  width: 12px;
-  height: 12px;
-  transform: scale(0);
-  background-color: var(--newspaper_white);
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    background-color: var(--newspaper_white);
 
-  content: "";
-  clip-path: polygon(0% 47%, 0% 63%, 40% 100%, 100% 18%, 100% 0%, 39% 81%);
+    content: "";
+    clip-path: polygon(0% 47%, 0% 63%, 40% 100%, 100% 18%, 100% 0%, 39% 81%);
 }
 
 .checkbox:checked::before {
-  transform: scale(1);
+    transform: scale(1);
 }
 
 .checkbox:hover {
 	background-color: var(--spinach);
+}
+
+
+#aa_tip {
+    grid-row-start: allow_anagrams;
 }
 
 
@@ -298,6 +322,10 @@ h1 span {
 	color: var(--off_black);
 }
 
+#wl_tip {
+    grid-row-start: word_length;
+}
+
 
 #starts_with {
 	grid-row-start: starts_with;
@@ -305,6 +333,10 @@ h1 span {
 
 #start_box {
 	grid-row-start: starts_with;
+}
+
+#sw_tip {
+    grid-row-start: starts_with;
 }
 
 
@@ -316,6 +348,10 @@ h1 span {
 	grid-row-start: ends_with;
 }
 
+#ew_tip {
+    grid-row-start: ends_with;
+}
+
 
 #contains {
 	grid-row-start: contains;
@@ -323,6 +359,10 @@ h1 span {
 
 #contain_box {
 	grid-row-start: contains;
+}
+
+#c_tip {
+    grid-row-start: contains;
 }
 
 
@@ -334,10 +374,14 @@ h1 span {
 	grid-row-start: fixed_letters;
 }
 
+#fl_tip {
+    grid-row-start: fixed_letters;
+}
+
 
 /* Used to initiate search */
 #search_button {
-  margin: 40px;
+    margin: 40px;
 
-  border-radius: 3px;
+    border-radius: 3px;
 }
