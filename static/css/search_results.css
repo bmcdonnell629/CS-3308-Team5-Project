@@ -99,7 +99,6 @@ body {
 #logout_button {
 	padding-left: 10px;
 	padding-right: 10px;
-	margin-right: 10px;
 
 	border-right: 2px solid var(--newspaper_white);
 }
