@@ -106,3 +106,11 @@ body {
 	/* Sizing/Positioning */
 	margin-right: 10px;
 }
+
+#logout_button {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: 10px;
+
+	border-left: 2px solid var(--newspaper_white);
+}
