@@ -4,6 +4,18 @@
 Brenden McDonnell, Nathaniel Mutkus, Tyler Sanchez, Elizabeth Strickenburg
 ______________
 
+Weekly Status as of 5/4/23:
+
+*Currently:*
+
+- Presentation prep
+- Demo video
+- Tooltips for search page
+- Logout functionality
+- Script/buttons for adding search results and scores to database
+
+<img src="static/images/Weekly_Status_5_4_23.png">
+
 Weekly Status as of 4/26/23:
 
 *Currently:*
