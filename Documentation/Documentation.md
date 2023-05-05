@@ -40,7 +40,9 @@ User Stories - Contains ratings of user stories for some tasks of app developmen
 <hr>
 
 #### search() 
- 
+ Search/home page displaying a search bar and advanced filters that can be applied to the 
+ search results.
+ Returns the search page template.
 
 <hr>
 
@@ -63,7 +65,11 @@ User Stories - Contains ratings of user stories for some tasks of app developmen
 <hr>
 
 #### show_results() 
-
+Search results page showing the input from the user, search filters applied by the user, 
+the legal Scrabble Words matching the search input, and the scores for those words.
+Parameters are provided in the URL.
+Returns the search results template, as well as a list of word/score tuples, sorted 
+primarily by Scrabble score in descending order, then alphabetically.
 
 <hr>
 
