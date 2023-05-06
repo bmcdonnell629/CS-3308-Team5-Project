@@ -58,11 +58,13 @@ Users can view a brief introduction of the application on the about page
 Users can search for scrabble legal words by inputting the letters available to them  
 Users can also tailor their searches to game requirements through the use of advance filters such as word length, starts/ends with, letter position, and required phrases.
 
+<img src="static/images/Search_Results_Page.PNG">
+
 <hr>
 
 #### Search History
 
-<img src="static/images/Search_Results_Page.PNG">
+<img src="static/images/Search_History_Page.PNG">
 
 Users can view the last 5 searches they have made and the top 5 scoring words from those searches
 
