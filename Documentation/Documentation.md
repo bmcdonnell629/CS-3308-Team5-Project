@@ -47,15 +47,20 @@ User Stories - Contains ratings of user stories for some tasks of app developmen
 <hr>
 
 #### login() 
+Login page with the fields of username and password where a registered user can type in the correct username/password and then is starts a login session to be used throughout the application. It runs a query against the database to make sure that the username and password is correct. 
+Returns "Logged in Succesful" if username and password are correct. Returns "USERNAME/PASSWORD IS INCORRECT" if some information is incorrect. 
 
 <hr>
 
 #### logout() 
+Logout page that runs a pop in the session id and the session name for the user to end the user's current session and log the user out of the application. 
+Returns the login template so another user can log in. 
 
 <hr>
 
 #### register()
- 
+Register user page with fields of Name, Username, and Password. Where a user can input these fields and create a user record in the user table using a dbinsert function, it fills in the fields of Name, Username, Password, and UserID. The userid is automatically calculated as the next number based on the highest userid that currently exists. Once the user record is added the user can then login. 
+Returns "User Added Successfully" if user record is created. Returns "USERNAME ALREADY EXISTS, PLEASE USE A DIFFERENT USERNAME" if username already exists. 
 
 <hr>
 
