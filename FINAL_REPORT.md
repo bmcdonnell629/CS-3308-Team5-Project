@@ -18,10 +18,16 @@ Elizabeth Strickenburg (GitHub: estrickenburg, email: Elizabeth.Strickenburg@col
 **Git Repository Link:** https://github.com/bmcdonnell629/CS-3308-Team5-Project
 
 **Final Status Report:**
-- Completed: Web application that allows users to register accounts, login, search scrabble words based on letter inputs with various filters, revist user's last 5 word searches, and track user's top scrabble scores
-- In the process of implementing: Tooltips to better explain search parameters.
-- Plans for the future: Add scrabble score function that takes into account double and triple letter score board tiles, Make score page capable of tracking and updating game scores throughout a live scrabble game before submitting. Add a database table for definitions of word that can be returned to be used to explain the words that are used in the game.  
-- Known bugs/issues: Search parameter tooltips may be cutoff for smaller screen resolutions (i.e. mobile). Logout page errors out if no user is logged in.
+- *Completed:* 
+    - Web application that allows users to register accounts, login, search scrabble words based on letter inputs with various filters, revist user's last 5 word searches, and track user's top scrabble scores
+- *In the Process of Implementing:*
+    - Tooltips to better explain search parameters.
+- *Plans for the future:* 
+    - Add scrabble score function that takes into account double and triple letter score board tiles 
+    - Make score page capable of tracking and updating game scores throughout a live Scrabble game before submitting. 
+    - Add a database table for definitions of word that can be returned to be used to explain the words that are used in the game. 
+- *Known bugs/issues:*
+    - Search parameter tooltips may be cutoff for smaller screen resolutions (i.e. mobile). Logout page errors out if no user is logged in.
 
 **Public Hosting Site:** https://scrabble-for-the-rabble.onrender.com
 
