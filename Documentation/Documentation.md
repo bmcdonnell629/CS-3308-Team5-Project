@@ -14,20 +14,17 @@ Basic website application using the flask framework to search scrabble words for
 Access web app via https://scrabble-for-the-rabble.onrender.com/  
 Updates to app need to be pushed to Github repository for auto updates  
 
-#### Directory Folder Layout
-App - Contains base python app  
-Databases - Contains python files for creation and deletion of database tables  
-Documentation - Contains project documentation      
-flask env - contains virtual environment for running flask    
-HTML - Contains html templates  
-images - Contains any linked images  
-static - contains any static files used for webpage construction    
-Milestone 4 Web Testing - Contains proposal write up for web page ideas  
-Milestone 5 SQL design - Contains proposal for database structure and set up  
-Render - Contains pictures of render settings for linking github and sql dtabase connection urls  
-static - Contains css, javascript, images  
-templates - contains html templates for web page rendering    
-User Stories - Contains ratings of user stories for some tasks of app development   
+#### Directory Folder Layout  
+- Databases - Contains python files for creation and deletion of database tables  
+- Documentation - Contains project documentation      
+- flask env - contains virtual environment for running flask      
+- Milestone 4 Web Testing - Contains proposal write up for web page ideas  
+- Milestone 5 SQL design - Contains proposal for database structure and set up  
+- Milestone 7 Presentation Files - Contains group presentation slides
+- Render - Contains pictures of render settings for linking github and sql dtabase connection urls  
+- static - Contains css, javascript, images  
+- templates - contains html templates for web page rendering    
+- User Stories - Contains ratings of user stories for some tasks of app development   
 
 <hr>
 
