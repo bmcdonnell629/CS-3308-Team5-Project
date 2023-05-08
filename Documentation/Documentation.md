@@ -65,7 +65,7 @@ Returns "User Added Successfully" if user record is created. Returns "USERNAME A
 <hr>
 
 #### about() 
- 
+About page communicating the purpose of the site, including a link for the user to try out the search function. 
 
 <hr>
 
