@@ -19,9 +19,9 @@ Elizabeth Strickenburg (GitHub: estrickenburg, email: Elizabeth.Strickenburg@col
 
 **Final Status Report:**
 - Completed: Web application that allows users to register accounts, login, search scrabble words based on letter inputs with various filters, revist user's last 5 word searches, and track user's top scrabble scores
-- In the process of implementing: 
+- In the process of implementing: Tooltips to better explain search parameters.
 - Plans for the future: Add scrabble score function that takes into account double and triple letter score board tiles, Make score page capable of tracking and updating game scores throughout a live scrabble game before submitting 
-- Known bugs/issues:
+- Known bugs/issues: Search parameters tooltips may be cutoff for smaller screen resolutions (i.e. mobile).
 
 **Public Hosting Site:** https://scrabble-for-the-rabble.onrender.com
 
