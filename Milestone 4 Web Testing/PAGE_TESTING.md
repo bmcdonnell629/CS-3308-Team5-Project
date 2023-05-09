@@ -6,7 +6,7 @@ __Page Description:__
 
 * Page displays a search box with optional filters to allow users to input their letters
 
-<img src="../images/Search_Page.png">
+<img src="../static/images/Search_Page.png">
 
 __Parameters needed for the page:__ 
 
@@ -40,7 +40,7 @@ __Page Description:__
 
 * Page that a user will use to enter a username and password to login to the web app. 
 
-<img src="../images/Sign In.png">
+<img src="../static/images/Sign In.png">
 
 __Parameters needed for the page:__ 
 
@@ -73,7 +73,7 @@ __Page Description:__
 
 * Page that a user will use to create a new user within the database by entering name, username, and password.
 
-<img src="../images/Register.png">
+<img src="../static/images/Register.png">
 
 __Parameters needed for the page:__ 
 
@@ -112,7 +112,7 @@ __Page Description:__
 
 * Page briefly describes the site's purpose, gives the user a means to try out the site, and offers links to other helpful Scrabble sites.
 
-<img src="../images/Scrabble_AboutPage.png">
+<img src="../static/images/Scrabble_AboutPage.png">
 
 
 
@@ -147,7 +147,7 @@ __Page Description:__
 
 * Page displays the results of scrabble dictionary search from provided letters in descending scrabble score order  
 
-<img src="../images/Scrabble-Results-Template.JPG">
+<img src="../static/images/Scrabble-Results-Template.JPG">
 
 __Parameters needed for the page:__  
 
@@ -187,7 +187,7 @@ __Page Description:__
 
 * Page displays the top 5 scoring words from the last 5 word searches the user has submitted  
 
-<img src="../images/Scrabble-PastResults-Template.JPG">
+<img src="../static/images/Scrabble-PastResults-Template.JPG">
 
 __Parameters needed for the page:__   
 

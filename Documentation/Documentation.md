@@ -7,7 +7,7 @@
     
 ### About
 
-Basic website application using the flask framework to search scrabble words form letter inputs and track user scores.
+Basic website application using the flask framework to search scrabble words from letter inputs and track user scores.
 
 ### Basic Set Up
 
